@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
+		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
+		4ED655F5170F7867005FEE56 /* JGossip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED655F4170F7867005FEE56 /* JGossip.m */; };
+		4ED655FD170F7867005FEE56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655FC170F7867005FEE56 /* SenTestingKit.framework */; };
+		4ED655FE170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
+		4ED65601170F7867005FEE56 /* JGossip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* JGossip.framework */; };
+		4ED65607170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED65605170F7867005FEE56 /* InfoPlist.strings */; };
+		4ED6560A170F7867005FEE56 /* JGossipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65609170F7867005FEE56 /* JGossipTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4ED655FF170F7867005FEE56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4ED655DA170F7867005FEE56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4ED655E2170F7867005FEE56;
+			remoteInfo = JGossip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4ED655E3170F7867005FEE56 /* JGossip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGossip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED655E6170F7867005FEE56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4ED655E9170F7867005FEE56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4ED655EA170F7867005FEE56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4ED655EB170F7867005FEE56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4ED655EE170F7867005FEE56 /* JGossip-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGossip-Info.plist"; sourceTree = "<group>"; };
+		4ED655F0170F7867005FEE56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4ED655F2170F7867005FEE56 /* JGossip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JGossip-Prefix.pch"; sourceTree = "<group>"; };
+		4ED655F3170F7867005FEE56 /* JGossip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGossip.h; sourceTree = "<group>"; };
+		4ED655F4170F7867005FEE56 /* JGossip.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGossip.m; sourceTree = "<group>"; };
+		4ED655FB170F7867005FEE56 /* JGossipTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JGossipTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED655FC170F7867005FEE56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4ED65604170F7867005FEE56 /* JGossipTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGossipTests-Info.plist"; sourceTree = "<group>"; };
+		4ED65606170F7867005FEE56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4ED65608170F7867005FEE56 /* JGossipTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGossipTests.h; sourceTree = "<group>"; };
+		4ED65609170F7867005FEE56 /* JGossipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGossipTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4ED655DF170F7867005FEE56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4ED655F7170F7867005FEE56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED655FD170F7867005FEE56 /* SenTestingKit.framework in Frameworks */,
+				4ED655FE170F7867005FEE56 /* Cocoa.framework in Frameworks */,
+				4ED65601170F7867005FEE56 /* JGossip.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4ED655D9170F7867005FEE56 = {
+			isa = PBXGroup;
+			children = (
+				4ED655EC170F7867005FEE56 /* JGossip */,
+				4ED65602170F7867005FEE56 /* JGossipTests */,
+				4ED655E5170F7867005FEE56 /* Frameworks */,
+				4ED655E4170F7867005FEE56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4ED655E4170F7867005FEE56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4ED655E3170F7867005FEE56 /* JGossip.framework */,
+				4ED655FB170F7867005FEE56 /* JGossipTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4ED655E5170F7867005FEE56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ED655E6170F7867005FEE56 /* Cocoa.framework */,
+				4ED655FC170F7867005FEE56 /* SenTestingKit.framework */,
+				4ED655E8170F7867005FEE56 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4ED655E8170F7867005FEE56 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ED655E9170F7867005FEE56 /* AppKit.framework */,
+				4ED655EA170F7867005FEE56 /* CoreData.framework */,
+				4ED655EB170F7867005FEE56 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4ED655EC170F7867005FEE56 /* JGossip */ = {
+			isa = PBXGroup;
+			children = (
+				4ED655F3170F7867005FEE56 /* JGossip.h */,
+				4ED655F4170F7867005FEE56 /* JGossip.m */,
+				4ED655ED170F7867005FEE56 /* Supporting Files */,
+			);
+			path = JGossip;
+			sourceTree = "<group>";
+		};
+		4ED655ED170F7867005FEE56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ED655EE170F7867005FEE56 /* JGossip-Info.plist */,
+				4ED655EF170F7867005FEE56 /* InfoPlist.strings */,
+				4ED655F2170F7867005FEE56 /* JGossip-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4ED65602170F7867005FEE56 /* JGossipTests */ = {
+			isa = PBXGroup;
+			children = (
+				4ED65608170F7867005FEE56 /* JGossipTests.h */,
+				4ED65609170F7867005FEE56 /* JGossipTests.m */,
+				4ED65603170F7867005FEE56 /* Supporting Files */,
+			);
+			path = JGossipTests;
+			sourceTree = "<group>";
+		};
+		4ED65603170F7867005FEE56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ED65604170F7867005FEE56 /* JGossipTests-Info.plist */,
+				4ED65605170F7867005FEE56 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4ED655E0170F7867005FEE56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4ED655E2170F7867005FEE56 /* JGossip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossip" */;
+			buildPhases = (
+				4ED655DE170F7867005FEE56 /* Sources */,
+				4ED655DF170F7867005FEE56 /* Frameworks */,
+				4ED655E0170F7867005FEE56 /* Headers */,
+				4ED655E1170F7867005FEE56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JGossip;
+			productName = JGossip;
+			productReference = 4ED655E3170F7867005FEE56 /* JGossip.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4ED655FA170F7867005FEE56 /* JGossipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossipTests" */;
+			buildPhases = (
+				4ED655F6170F7867005FEE56 /* Sources */,
+				4ED655F7170F7867005FEE56 /* Frameworks */,
+				4ED655F8170F7867005FEE56 /* Resources */,
+				4ED655F9170F7867005FEE56 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4ED65600170F7867005FEE56 /* PBXTargetDependency */,
+			);
+			name = JGossipTests;
+			productName = JGossipTests;
+			productReference = 4ED655FB170F7867005FEE56 /* JGossipTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4ED655DA170F7867005FEE56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Jeremy Tregunna";
+			};
+			buildConfigurationList = 4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "JGossip" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4ED655D9170F7867005FEE56;
+			productRefGroup = 4ED655E4170F7867005FEE56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4ED655E2170F7867005FEE56 /* JGossip */,
+				4ED655FA170F7867005FEE56 /* JGossipTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4ED655E1170F7867005FEE56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4ED655F8170F7867005FEE56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED65607170F7867005FEE56 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4ED655F9170F7867005FEE56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4ED655DE170F7867005FEE56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED655F5170F7867005FEE56 /* JGossip.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4ED655F6170F7867005FEE56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED6560A170F7867005FEE56 /* JGossipTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4ED65600170F7867005FEE56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4ED655E2170F7867005FEE56 /* JGossip */;
+			targetProxy = 4ED655FF170F7867005FEE56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4ED655EF170F7867005FEE56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ED655F0170F7867005FEE56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4ED65605170F7867005FEE56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ED65606170F7867005FEE56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4ED6560B170F7867005FEE56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4ED6560C170F7867005FEE56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4ED6560E170F7867005FEE56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
+				INFOPLIST_FILE = "JGossip/JGossip-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		4ED6560F170F7867005FEE56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
+				INFOPLIST_FILE = "JGossip/JGossip-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		4ED65611170F7867005FEE56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
+				INFOPLIST_FILE = "JGossipTests/JGossipTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4ED65612170F7867005FEE56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
+				INFOPLIST_FILE = "JGossipTests/JGossipTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "JGossip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ED6560B170F7867005FEE56 /* Debug */,
+				4ED6560C170F7867005FEE56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ED6560E170F7867005FEE56 /* Debug */,
+				4ED6560F170F7867005FEE56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ED65611170F7867005FEE56 /* Debug */,
+				4ED65612170F7867005FEE56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4ED655DA170F7867005FEE56 /* Project object */;
+}
