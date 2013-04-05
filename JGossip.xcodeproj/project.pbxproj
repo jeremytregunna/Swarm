@@ -15,6 +15,10 @@
 		4ED65601170F7867005FEE56 /* JGossip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* JGossip.framework */; };
 		4ED65607170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED65605170F7867005FEE56 /* InfoPlist.strings */; };
 		4ED6560A170F7867005FEE56 /* JGossipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65609170F7867005FEE56 /* JGossipTests.m */; };
+		4ED65623170F7925005FEE56 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6561F170F7925005FEE56 /* GCDAsyncSocket.h */; };
+		4ED65624170F7925005FEE56 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65620170F7925005FEE56 /* GCDAsyncSocket.m */; };
+		4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65621170F7925005FEE56 /* GCDAsyncUdpSocket.h */; };
+		4ED65626170F7925005FEE56 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65622170F7925005FEE56 /* GCDAsyncUdpSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		4ED65606170F7867005FEE56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4ED65608170F7867005FEE56 /* JGossipTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGossipTests.h; sourceTree = "<group>"; };
 		4ED65609170F7867005FEE56 /* JGossipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGossipTests.m; sourceTree = "<group>"; };
+		4ED6561F170F7925005FEE56 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		4ED65620170F7925005FEE56 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		4ED65621170F7925005FEE56 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		4ED65622170F7925005FEE56 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				4ED655EC170F7867005FEE56 /* JGossip */,
+				4ED6561D170F7925005FEE56 /* Vendor */,
 				4ED65602170F7867005FEE56 /* JGossipTests */,
 				4ED655E5170F7867005FEE56 /* Frameworks */,
 				4ED655E4170F7867005FEE56 /* Products */,
@@ -146,6 +155,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4ED6561D170F7925005FEE56 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				4ED6561E170F7925005FEE56 /* GCDAsyncSocket */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		4ED6561E170F7925005FEE56 /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				4ED6561F170F7925005FEE56 /* GCDAsyncSocket.h */,
+				4ED65620170F7925005FEE56 /* GCDAsyncSocket.m */,
+				4ED65621170F7925005FEE56 /* GCDAsyncUdpSocket.h */,
+				4ED65622170F7925005FEE56 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCDAsyncSocket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -153,6 +181,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED65623170F7925005FEE56 /* GCDAsyncSocket.h in Headers */,
+				4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED655F5170F7867005FEE56 /* JGossip.m in Sources */,
+				4ED65624170F7925005FEE56 /* GCDAsyncSocket.m in Sources */,
+				4ED65626170F7925005FEE56 /* GCDAsyncUdpSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
