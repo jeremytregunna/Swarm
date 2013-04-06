@@ -10,6 +10,7 @@
 
 @interface JNode : NSObject
 @property (nonatomic, readonly) uint32_t nodeID;
+@property (nonatomic, readonly, copy) NSDictionary* history;
 
 + (instancetype)nodeWithID:(uint32_t)nodeID;
 @end

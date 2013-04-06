@@ -21,6 +21,7 @@ typedef NS_ENUM(char, JMessagePurpose)
 @end
 
 @interface JMessage : NSObject <NSCopying, JMessageable>
+@property (nonatomic, readonly, strong) NSUUID* messageID;
 @property (nonatomic, readonly) JMessagePurpose purpose;
 @property (nonatomic, readonly) uint32_t sender, receiver;
 @property (nonatomic, readonly, copy) NSDictionary* payload;

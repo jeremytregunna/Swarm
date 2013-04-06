@@ -9,6 +9,8 @@
 #import "JMessage.h"
 
 @interface JMessage ()
+@property (nonatomic, readwrite, strong) NSUUID* messageID;
+
 - (instancetype)initWithPurpose:(JMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
 @end
 
@@ -23,6 +25,7 @@
 {
     if((self = [super init]))
     {
+        _messageID = [NSUUID UUID];
         _purpose = purpose;
         _sender = sender;
         _receiver = receiver;
@@ -33,12 +36,14 @@
 
 - (id)copyWithZone:(NSZone*)zone
 {
-    return [[[self class] alloc] initWithPurpose:_purpose from:_sender to:_receiver withPayload:_payload];
+    typeof(self) result = [[[self class] alloc] initWithPurpose:_purpose from:_sender to:_receiver withPayload:_payload];
+    result.messageID = self.messageID;
+    return result;
 }
 
 - (BOOL)isEqual:(JMessage*)other
 {
-    return _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_payload isEqualToDictionary:other.payload];
+    return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_payload isEqualToDictionary:other.payload];
 }
 
 - (NSUInteger)hash
@@ -46,6 +51,7 @@
     NSUInteger prime = 31;
     NSUInteger result = 1;
 
+    result = prime * result + [_messageID hash];
     result = prime * result + _purpose;
     result = prime * result + _sender;
     result = prime * result + _receiver;
@@ -59,6 +65,7 @@
 - (NSDictionary*)dictionaryFromFields
 {
     NSArray* keys = @[
+        @"messageID",
         @"purpose",
         @"sender",
         @"receiver",

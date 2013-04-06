@@ -9,6 +9,10 @@
 #import "JMessageTests.h"
 #import "JMessage.h"
 
+@interface JMessage (PrivateMethods)
+@property (nonatomic, readwrite, strong) NSUUID* messageID;
+@end
+
 @implementation JMessageTests
 {
     NSDictionary* sample;
@@ -19,6 +23,7 @@
     [super setUp];
 
     sample = @{
+        @"messageID": [[NSUUID alloc] initWithUUIDString:@"68753A44-4D6F-1226-9C60-0050E4C00067"],
         @"purpose": @(JMessagePurposePayload),
         @"sender": @(1),
         @"receiver": @(2),
@@ -28,7 +33,15 @@
 
 - (JMessage*)messageFromSample
 {
-    return [JMessage messageWithPurpose:[sample[@"purpose"] charValue] from:[sample[@"sender"] unsignedIntValue] to:[sample[@"receiver"] unsignedIntValue] withPayload:sample[@"payload"]];
+    JMessage* msg = [JMessage messageWithPurpose:[sample[@"purpose"] charValue] from:[sample[@"sender"] unsignedIntValue] to:[sample[@"receiver"] unsignedIntValue] withPayload:sample[@"payload"]];
+    msg.messageID = sample[@"messageID"];
+    return msg;
+}
+
+- (void)testMessageID
+{
+    JMessage* msg = [self messageFromSample];
+    STAssertEqualObjects(msg.messageID, sample[@"messageID"], @"Message ID differs");
 }
 
 - (void)testPurpose

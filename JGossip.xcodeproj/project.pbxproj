@@ -93,7 +93,6 @@
 		4ED655D9170F7867005FEE56 = {
 			isa = PBXGroup;
 			children = (
-				4ED65635170FA563005FEE56 /* Security.framework */,
 				4ED655EC170F7867005FEE56 /* JGossip */,
 				4ED6561D170F7925005FEE56 /* Vendor */,
 				4ED65602170F7867005FEE56 /* JGossipTests */,
@@ -114,6 +113,7 @@
 		4ED655E5170F7867005FEE56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ED65635170FA563005FEE56 /* Security.framework */,
 				4ED655E6170F7867005FEE56 /* Cocoa.framework */,
 				4ED655FC170F7867005FEE56 /* SenTestingKit.framework */,
 				4ED655E8170F7867005FEE56 /* Other Frameworks */,
