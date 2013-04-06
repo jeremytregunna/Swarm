@@ -27,6 +27,9 @@
 		4ED6563A170FCE81005FEE56 /* JNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65638170FCE81005FEE56 /* JNode.m */; };
 		4ED6563D17107ECB005FEE56 /* JHistoryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563B17107ECB005FEE56 /* JHistoryItem.h */; };
 		4ED6563E17107ECB005FEE56 /* JHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6563C17107ECB005FEE56 /* JHistoryItem.m */; };
+		4ED6564117108786005FEE56 /* JVectorClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563F17108786005FEE56 /* JVectorClock.h */; };
+		4ED6564217108786005FEE56 /* JVectorClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6564017108786005FEE56 /* JVectorClock.m */; };
+		4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656441710A650005FEE56 /* JVectorClockTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,10 @@
 		4ED65638170FCE81005FEE56 /* JNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNode.m; sourceTree = "<group>"; };
 		4ED6563B17107ECB005FEE56 /* JHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHistoryItem.h; sourceTree = "<group>"; };
 		4ED6563C17107ECB005FEE56 /* JHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHistoryItem.m; sourceTree = "<group>"; };
+		4ED6563F17108786005FEE56 /* JVectorClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVectorClock.h; sourceTree = "<group>"; };
+		4ED6564017108786005FEE56 /* JVectorClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClock.m; sourceTree = "<group>"; };
+		4ED656431710A650005FEE56 /* JVectorClockTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVectorClockTests.h; sourceTree = "<group>"; };
+		4ED656441710A650005FEE56 /* JVectorClockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClockTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +151,8 @@
 				4ED65638170FCE81005FEE56 /* JNode.m */,
 				4ED6563B17107ECB005FEE56 /* JHistoryItem.h */,
 				4ED6563C17107ECB005FEE56 /* JHistoryItem.m */,
+				4ED6563F17108786005FEE56 /* JVectorClock.h */,
+				4ED6564017108786005FEE56 /* JVectorClock.m */,
 				4ED655F3170F7867005FEE56 /* JGossip.h */,
 				4ED655F4170F7867005FEE56 /* JGossip.m */,
 				4ED655ED170F7867005FEE56 /* Supporting Files */,
@@ -166,6 +175,8 @@
 			children = (
 				4ED65632170FA13F005FEE56 /* JMessageTests.h */,
 				4ED65633170FA13F005FEE56 /* JMessageTests.m */,
+				4ED656431710A650005FEE56 /* JVectorClockTests.h */,
+				4ED656441710A650005FEE56 /* JVectorClockTests.m */,
 				4ED65608170F7867005FEE56 /* JGossipTests.h */,
 				4ED65609170F7867005FEE56 /* JGossipTests.m */,
 				4ED65603170F7867005FEE56 /* Supporting Files */,
@@ -213,6 +224,7 @@
 				4ED6562D170F7AE0005FEE56 /* JMessage.h in Headers */,
 				4ED65639170FCE81005FEE56 /* JNode.h in Headers */,
 				4ED6563D17107ECB005FEE56 /* JHistoryItem.h in Headers */,
+				4ED6564117108786005FEE56 /* JVectorClock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +341,7 @@
 				4ED6562E170F7AE0005FEE56 /* JMessage.m in Sources */,
 				4ED6563A170FCE81005FEE56 /* JNode.m in Sources */,
 				4ED6563E17107ECB005FEE56 /* JHistoryItem.m in Sources */,
+				4ED6564217108786005FEE56 /* JVectorClock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +351,7 @@
 			files = (
 				4ED6560A170F7867005FEE56 /* JGossipTests.m in Sources */,
 				4ED65634170FA13F005FEE56 /* JMessageTests.m in Sources */,
+				4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
