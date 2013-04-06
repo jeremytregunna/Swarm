@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol JNodeHistoryDataSource;
+@class JHistoryItem;
+
 @interface JNode : NSObject
 @property (nonatomic, readonly) uint32_t nodeID;
-@property (nonatomic, readonly, copy) NSDictionary* history;
+@property (nonatomic, readonly, weak) id<JNodeHistoryDataSource> historyDataSource;
 
 + (instancetype)nodeWithID:(uint32_t)nodeID;
+@end
+
+@protocol JNodeHistoryDataSource <NSObject>
+- (JHistoryItem*)historyItemForMessageID:(NSUUID*)messageID;
+- (void)didReceiveHistoryItemForMessageID:(NSUUID*)messageID;
 @end

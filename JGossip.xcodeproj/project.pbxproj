@@ -25,6 +25,8 @@
 		4ED65636170FA563005FEE56 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED65635170FA563005FEE56 /* Security.framework */; };
 		4ED65639170FCE81005FEE56 /* JNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65637170FCE81005FEE56 /* JNode.h */; };
 		4ED6563A170FCE81005FEE56 /* JNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65638170FCE81005FEE56 /* JNode.m */; };
+		4ED6563D17107ECB005FEE56 /* JHistoryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563B17107ECB005FEE56 /* JHistoryItem.h */; };
+		4ED6563E17107ECB005FEE56 /* JHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6563C17107ECB005FEE56 /* JHistoryItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		4ED65635170FA563005FEE56 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4ED65637170FCE81005FEE56 /* JNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNode.h; sourceTree = "<group>"; };
 		4ED65638170FCE81005FEE56 /* JNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNode.m; sourceTree = "<group>"; };
+		4ED6563B17107ECB005FEE56 /* JHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHistoryItem.h; sourceTree = "<group>"; };
+		4ED6563C17107ECB005FEE56 /* JHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHistoryItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				4ED6562C170F7AE0005FEE56 /* JMessage.m */,
 				4ED65637170FCE81005FEE56 /* JNode.h */,
 				4ED65638170FCE81005FEE56 /* JNode.m */,
+				4ED6563B17107ECB005FEE56 /* JHistoryItem.h */,
+				4ED6563C17107ECB005FEE56 /* JHistoryItem.m */,
 				4ED655F3170F7867005FEE56 /* JGossip.h */,
 				4ED655F4170F7867005FEE56 /* JGossip.m */,
 				4ED655ED170F7867005FEE56 /* Supporting Files */,
@@ -206,6 +212,7 @@
 				4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */,
 				4ED6562D170F7AE0005FEE56 /* JMessage.h in Headers */,
 				4ED65639170FCE81005FEE56 /* JNode.h in Headers */,
+				4ED6563D17107ECB005FEE56 /* JHistoryItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +328,7 @@
 				4ED65626170F7925005FEE56 /* GCDAsyncUdpSocket.m in Sources */,
 				4ED6562E170F7AE0005FEE56 /* JMessage.m in Sources */,
 				4ED6563A170FCE81005FEE56 /* JNode.m in Sources */,
+				4ED6563E17107ECB005FEE56 /* JHistoryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
