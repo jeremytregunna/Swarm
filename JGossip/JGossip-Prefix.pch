@@ -4,4 +4,14 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
+
+    #if defined(DEBUG) && !defined(JDLog)
+        #define JDLog(m, ...) ({ NSLog(@"[%s:%d] %s: " m, __FILE__, __LINE__, __PRETTY_FUNCTION__, ## __VA_ARGS__); })
+    #elif !defined(JDLog)
+        #define JDLog(m, ...)
+    #endif
 #endif
+
+#define JSWARM_PORT 11110
+#define JSWARM_READ_TIMEOUT 15.0f
+#define JSWARM_READ_TIMEOUT_EXTENSION 10.0f

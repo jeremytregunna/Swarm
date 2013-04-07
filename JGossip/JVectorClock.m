@@ -7,7 +7,6 @@
 //
 
 #import "JVectorClock.h"
-#import "JNode.h"
 
 static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber* bNumber, void* context)
 {
