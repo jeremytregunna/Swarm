@@ -1,13 +1,13 @@
 //
-//  JGossip.h
-//  JGossip
+//  SwarmTests.h
+//  SwarmTests
 //
 //  Created by Jeremy Tregunna on 2013-04-05.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
 
-@interface JGossip : NSObject
+@interface SwarmTests : SenTestCase
 
 @end

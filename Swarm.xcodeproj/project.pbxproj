@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
 		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
-		4ED655F5170F7867005FEE56 /* JGossip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED655F4170F7867005FEE56 /* JGossip.m */; };
+		4ED655F5170F7867005FEE56 /* Swarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED655F4170F7867005FEE56 /* Swarm.m */; };
 		4ED655FD170F7867005FEE56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655FC170F7867005FEE56 /* SenTestingKit.framework */; };
 		4ED655FE170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
-		4ED65601170F7867005FEE56 /* JGossip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* JGossip.framework */; };
+		4ED65601170F7867005FEE56 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
 		4ED65607170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED65605170F7867005FEE56 /* InfoPlist.strings */; };
-		4ED6560A170F7867005FEE56 /* JGossipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65609170F7867005FEE56 /* JGossipTests.m */; };
+		4ED6560A170F7867005FEE56 /* SwarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65609170F7867005FEE56 /* SwarmTests.m */; };
 		4ED65623170F7925005FEE56 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6561F170F7925005FEE56 /* GCDAsyncSocket.h */; };
 		4ED65624170F7925005FEE56 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65620170F7925005FEE56 /* GCDAsyncSocket.m */; };
 		4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65621170F7925005FEE56 /* GCDAsyncUdpSocket.h */; };
@@ -40,27 +40,27 @@
 			containerPortal = 4ED655DA170F7867005FEE56 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4ED655E2170F7867005FEE56;
-			remoteInfo = JGossip;
+			remoteInfo = Swarm;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4ED655E3170F7867005FEE56 /* JGossip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGossip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED655E3170F7867005FEE56 /* Swarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED655E6170F7867005FEE56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4ED655E9170F7867005FEE56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4ED655EA170F7867005FEE56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4ED655EB170F7867005FEE56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4ED655EE170F7867005FEE56 /* JGossip-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGossip-Info.plist"; sourceTree = "<group>"; };
+		4ED655EE170F7867005FEE56 /* Swarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Swarm-Info.plist"; sourceTree = "<group>"; };
 		4ED655F0170F7867005FEE56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4ED655F2170F7867005FEE56 /* JGossip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JGossip-Prefix.pch"; sourceTree = "<group>"; };
-		4ED655F3170F7867005FEE56 /* JGossip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGossip.h; sourceTree = "<group>"; };
-		4ED655F4170F7867005FEE56 /* JGossip.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGossip.m; sourceTree = "<group>"; };
-		4ED655FB170F7867005FEE56 /* JGossipTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JGossipTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED655F2170F7867005FEE56 /* Swarm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swarm-Prefix.pch"; sourceTree = "<group>"; };
+		4ED655F3170F7867005FEE56 /* Swarm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swarm.h; sourceTree = "<group>"; };
+		4ED655F4170F7867005FEE56 /* Swarm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Swarm.m; sourceTree = "<group>"; };
+		4ED655FB170F7867005FEE56 /* SwarmTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED655FC170F7867005FEE56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		4ED65604170F7867005FEE56 /* JGossipTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGossipTests-Info.plist"; sourceTree = "<group>"; };
+		4ED65604170F7867005FEE56 /* SwarmTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwarmTests-Info.plist"; sourceTree = "<group>"; };
 		4ED65606170F7867005FEE56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4ED65608170F7867005FEE56 /* JGossipTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGossipTests.h; sourceTree = "<group>"; };
-		4ED65609170F7867005FEE56 /* JGossipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGossipTests.m; sourceTree = "<group>"; };
+		4ED65608170F7867005FEE56 /* SwarmTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwarmTests.h; sourceTree = "<group>"; };
+		4ED65609170F7867005FEE56 /* SwarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwarmTests.m; sourceTree = "<group>"; };
 		4ED6561F170F7925005FEE56 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		4ED65620170F7925005FEE56 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		4ED65621170F7925005FEE56 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			files = (
 				4ED655FD170F7867005FEE56 /* SenTestingKit.framework in Frameworks */,
 				4ED655FE170F7867005FEE56 /* Cocoa.framework in Frameworks */,
-				4ED65601170F7867005FEE56 /* JGossip.framework in Frameworks */,
+				4ED65601170F7867005FEE56 /* Swarm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,9 +108,9 @@
 		4ED655D9170F7867005FEE56 = {
 			isa = PBXGroup;
 			children = (
-				4ED655EC170F7867005FEE56 /* JGossip */,
+				4ED655EC170F7867005FEE56 /* Swarm */,
 				4ED6561D170F7925005FEE56 /* Vendor */,
-				4ED65602170F7867005FEE56 /* JGossipTests */,
+				4ED65602170F7867005FEE56 /* SwarmTests */,
 				4ED655E5170F7867005FEE56 /* Frameworks */,
 				4ED655E4170F7867005FEE56 /* Products */,
 			);
@@ -119,8 +119,8 @@
 		4ED655E4170F7867005FEE56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4ED655E3170F7867005FEE56 /* JGossip.framework */,
-				4ED655FB170F7867005FEE56 /* JGossipTests.octest */,
+				4ED655E3170F7867005FEE56 /* Swarm.framework */,
+				4ED655FB170F7867005FEE56 /* SwarmTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		4ED655EC170F7867005FEE56 /* JGossip */ = {
+		4ED655EC170F7867005FEE56 /* Swarm */ = {
 			isa = PBXGroup;
 			children = (
 				4ED6562B170F7AE0005FEE56 /* JMessage.h */,
@@ -159,41 +159,41 @@
 				4ED6563C17107ECB005FEE56 /* JHistoryItem.m */,
 				4ED6563F17108786005FEE56 /* JVectorClock.h */,
 				4ED6564017108786005FEE56 /* JVectorClock.m */,
-				4ED655F3170F7867005FEE56 /* JGossip.h */,
-				4ED655F4170F7867005FEE56 /* JGossip.m */,
+				4ED655F3170F7867005FEE56 /* Swarm.h */,
+				4ED655F4170F7867005FEE56 /* Swarm.m */,
 				4ED655ED170F7867005FEE56 /* Supporting Files */,
 			);
-			path = JGossip;
+			path = Swarm;
 			sourceTree = "<group>";
 		};
 		4ED655ED170F7867005FEE56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4ED655EE170F7867005FEE56 /* JGossip-Info.plist */,
+				4ED655EE170F7867005FEE56 /* Swarm-Info.plist */,
 				4ED655EF170F7867005FEE56 /* InfoPlist.strings */,
-				4ED655F2170F7867005FEE56 /* JGossip-Prefix.pch */,
+				4ED655F2170F7867005FEE56 /* Swarm-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4ED65602170F7867005FEE56 /* JGossipTests */ = {
+		4ED65602170F7867005FEE56 /* SwarmTests */ = {
 			isa = PBXGroup;
 			children = (
 				4ED65632170FA13F005FEE56 /* JMessageTests.h */,
 				4ED65633170FA13F005FEE56 /* JMessageTests.m */,
 				4ED656431710A650005FEE56 /* JVectorClockTests.h */,
 				4ED656441710A650005FEE56 /* JVectorClockTests.m */,
-				4ED65608170F7867005FEE56 /* JGossipTests.h */,
-				4ED65609170F7867005FEE56 /* JGossipTests.m */,
+				4ED65608170F7867005FEE56 /* SwarmTests.h */,
+				4ED65609170F7867005FEE56 /* SwarmTests.m */,
 				4ED65603170F7867005FEE56 /* Supporting Files */,
 			);
-			path = JGossipTests;
+			path = SwarmTests;
 			sourceTree = "<group>";
 		};
 		4ED65603170F7867005FEE56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4ED65604170F7867005FEE56 /* JGossipTests-Info.plist */,
+				4ED65604170F7867005FEE56 /* SwarmTests-Info.plist */,
 				4ED65605170F7867005FEE56 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -238,9 +238,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4ED655E2170F7867005FEE56 /* JGossip */ = {
+		4ED655E2170F7867005FEE56 /* Swarm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossip" */;
+			buildConfigurationList = 4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "Swarm" */;
 			buildPhases = (
 				4ED655DE170F7867005FEE56 /* Sources */,
 				4ED655DF170F7867005FEE56 /* Frameworks */,
@@ -251,14 +251,14 @@
 			);
 			dependencies = (
 			);
-			name = JGossip;
-			productName = JGossip;
-			productReference = 4ED655E3170F7867005FEE56 /* JGossip.framework */;
+			name = Swarm;
+			productName = Swarm;
+			productReference = 4ED655E3170F7867005FEE56 /* Swarm.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4ED655FA170F7867005FEE56 /* JGossipTests */ = {
+		4ED655FA170F7867005FEE56 /* SwarmTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossipTests" */;
+			buildConfigurationList = 4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "SwarmTests" */;
 			buildPhases = (
 				4ED655F6170F7867005FEE56 /* Sources */,
 				4ED655F7170F7867005FEE56 /* Frameworks */,
@@ -270,9 +270,9 @@
 			dependencies = (
 				4ED65600170F7867005FEE56 /* PBXTargetDependency */,
 			);
-			name = JGossipTests;
-			productName = JGossipTests;
-			productReference = 4ED655FB170F7867005FEE56 /* JGossipTests.octest */;
+			name = SwarmTests;
+			productName = SwarmTests;
+			productReference = 4ED655FB170F7867005FEE56 /* SwarmTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -284,7 +284,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Jeremy Tregunna";
 			};
-			buildConfigurationList = 4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "JGossip" */;
+			buildConfigurationList = 4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "Swarm" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -296,8 +296,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4ED655E2170F7867005FEE56 /* JGossip */,
-				4ED655FA170F7867005FEE56 /* JGossipTests */,
+				4ED655E2170F7867005FEE56 /* Swarm */,
+				4ED655FA170F7867005FEE56 /* SwarmTests */,
 			);
 		};
 /* End PBXProject section */
@@ -342,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED655F5170F7867005FEE56 /* JGossip.m in Sources */,
+				4ED655F5170F7867005FEE56 /* Swarm.m in Sources */,
 				4ED65624170F7925005FEE56 /* GCDAsyncSocket.m in Sources */,
 				4ED65626170F7925005FEE56 /* GCDAsyncUdpSocket.m in Sources */,
 				4ED6562E170F7AE0005FEE56 /* JMessage.m in Sources */,
@@ -357,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED6560A170F7867005FEE56 /* JGossipTests.m in Sources */,
+				4ED6560A170F7867005FEE56 /* SwarmTests.m in Sources */,
 				4ED65634170FA13F005FEE56 /* JMessageTests.m in Sources */,
 				4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */,
 			);
@@ -368,7 +368,7 @@
 /* Begin PBXTargetDependency section */
 		4ED65600170F7867005FEE56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4ED655E2170F7867005FEE56 /* JGossip */;
+			target = 4ED655E2170F7867005FEE56 /* Swarm */;
 			targetProxy = 4ED655FF170F7867005FEE56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -460,8 +460,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
-				INFOPLIST_FILE = "JGossip/JGossip-Info.plist";
+				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
+				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -475,8 +475,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
-				INFOPLIST_FILE = "JGossip/JGossip-Info.plist";
+				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
+				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -488,8 +488,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
-				INFOPLIST_FILE = "JGossipTests/JGossipTests-Info.plist";
+				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
+				INFOPLIST_FILE = "SwarmTests/SwarmTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -501,8 +501,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JGossip/JGossip-Prefix.pch";
-				INFOPLIST_FILE = "JGossipTests/JGossipTests-Info.plist";
+				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
+				INFOPLIST_FILE = "SwarmTests/SwarmTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -511,7 +511,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "JGossip" */ = {
+		4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "Swarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4ED6560B170F7867005FEE56 /* Debug */,
@@ -520,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossip" */ = {
+		4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "Swarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4ED6560E170F7867005FEE56 /* Debug */,
@@ -528,7 +528,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "JGossipTests" */ = {
+		4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "SwarmTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4ED65611170F7867005FEE56 /* Debug */,
