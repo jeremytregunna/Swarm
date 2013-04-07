@@ -1,27 +1,27 @@
 //
-//  JMessage.m
-//  JGossip
+//  DPSMessage.m
+//  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-05.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "JMessage.h"
+#import "DPSMessage.h"
 
-@interface JMessage ()
+@interface DPSMessage ()
 @property (nonatomic, readwrite, strong) NSUUID* messageID;
 
-- (instancetype)initWithPurpose:(JMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
+- (instancetype)initWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
 @end
 
-@implementation JMessage
+@implementation DPSMessage
 
-+ (instancetype)messageWithPurpose:(JMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
++ (instancetype)messageWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
 {
     return [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
 }
 
-- (instancetype)initWithPurpose:(JMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
+- (instancetype)initWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
 {
     if((self = [super init]))
     {
@@ -41,7 +41,7 @@
     return result;
 }
 
-- (BOOL)isEqual:(JMessage*)other
+- (BOOL)isEqual:(DPSMessage*)other
 {
     return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_payload isEqualToDictionary:other.payload];
 }

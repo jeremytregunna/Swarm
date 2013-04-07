@@ -1,18 +1,18 @@
 //
-//  JSwarmManager.m
-//  JGossip
+//  DPSSwarmManager.m
+//  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-06.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "JSwarmManager.h"
+#import "DPSSwarmManager.h"
 
-@interface JSwarmManager ()
+@interface DPSSwarmManager ()
 @property (readwrite, getter = isRunning) BOOL running;
 @end
 
-@implementation JSwarmManager
+@implementation DPSSwarmManager
 {
     dispatch_queue_t _socketQueue;
     NSMutableArray* _connectedSockets;

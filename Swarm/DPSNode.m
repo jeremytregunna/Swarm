@@ -1,18 +1,18 @@
 //
-//  JNode.m
-//  JGossip
+//  DPSNode.m
+//  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-05.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "JNode.h"
+#import "DPSNode.h"
 
-@interface JNode ()
+@interface DPSNode ()
 - (instancetype)initWithNodeID:(uint32_t)nodeID;
 @end
 
-@implementation JNode
+@implementation DPSNode
 {
     NSMutableArray* _connectedSockets;
 }
