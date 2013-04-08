@@ -10,8 +10,7 @@
 
 typedef NS_ENUM(char, DPSMessagePurpose)
 {
-    DPSMessagePurposeInvalid = 0,
-    DPSMessagePurposeHeartbeat,
+    DPSMessagePurposeHeartbeat = 0,
     DPSMessagePurposePayload,
     DPSMessagePurposeForward,
 };

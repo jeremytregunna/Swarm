@@ -13,9 +13,6 @@
 @end
 
 @implementation DPSNode
-{
-    NSMutableArray* _connectedSockets;
-}
 
 + (instancetype)nodeWithID:(uint32_t)nodeID
 {
@@ -27,7 +24,6 @@
     if((self = [super init]))
     {
         _nodeID = nodeID;
-        _connectedSockets = [NSMutableArray arrayWithCapacity:1];
     }
     return self;
 }
