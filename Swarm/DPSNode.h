@@ -7,18 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCDAsyncSocket.h"
 
 @protocol DPSNodeHistoryDataSource;
-@class JHistoryItem;
+@class DPSHistoryItem, DPSMessage;
 
-@interface DPSNode : NSObject
+@interface DPSNode : NSObject <GCDAsyncSocketDelegate>
 @property (nonatomic, readonly) uint32_t nodeID;
 @property (nonatomic, readonly, weak) id<DPSNodeHistoryDataSource> historyDataSource;
+@property (readonly, getter = isRunning) BOOL running;
 
-+ (instancetype)nodeWithID:(uint32_t)nodeID;
++ (instancetype)nodeWithID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource;
+
+- (void)listen;
+- (void)listenOnPort:(uint16_t)port;
+- (void)connectToNodes:(NSArray*)nodes;
+
+- (BOOL)sendMessage:(DPSMessage*)msg;
 @end
 
 @protocol DPSNodeHistoryDataSource <NSObject>
-- (JHistoryItem*)historyItemForMessageID:(NSUUID*)messageID;
-- (void)didReceiveHistoryItemForMessageID:(NSUUID*)messageID;
+- (DPSHistoryItem*)historyItemForMessageID:(NSUUID*)messageID;
+- (void)storeHistoryItem:(DPSHistoryItem*)historyItem;
 @end

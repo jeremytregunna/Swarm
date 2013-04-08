@@ -30,8 +30,6 @@
 		4ED6564117108786005FEE56 /* JVectorClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563F17108786005FEE56 /* JVectorClock.h */; };
 		4ED6564217108786005FEE56 /* JVectorClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6564017108786005FEE56 /* JVectorClock.m */; };
 		4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656441710A650005FEE56 /* JVectorClockTests.m */; };
-		4ED656481710D6F0005FEE56 /* DPSSwarmManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED656461710D6EF005FEE56 /* DPSSwarmManager.h */; };
-		4ED656491710D6F0005FEE56 /* DPSSwarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656471710D6F0005FEE56 /* DPSSwarmManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +76,6 @@
 		4ED6564017108786005FEE56 /* JVectorClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClock.m; sourceTree = "<group>"; };
 		4ED656431710A650005FEE56 /* JVectorClockTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVectorClockTests.h; sourceTree = "<group>"; };
 		4ED656441710A650005FEE56 /* JVectorClockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClockTests.m; sourceTree = "<group>"; };
-		4ED656461710D6EF005FEE56 /* DPSSwarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSSwarmManager.h; sourceTree = "<group>"; };
-		4ED656471710D6F0005FEE56 /* DPSSwarmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSSwarmManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +149,6 @@
 				4ED6562C170F7AE0005FEE56 /* DPSMessage.m */,
 				4ED65637170FCE81005FEE56 /* DPSNode.h */,
 				4ED65638170FCE81005FEE56 /* DPSNode.m */,
-				4ED656461710D6EF005FEE56 /* DPSSwarmManager.h */,
-				4ED656471710D6F0005FEE56 /* DPSSwarmManager.m */,
 				4ED6563B17107ECB005FEE56 /* DPSHistoryItem.h */,
 				4ED6563C17107ECB005FEE56 /* DPSHistoryItem.m */,
 				4ED6563F17108786005FEE56 /* JVectorClock.h */,
@@ -231,7 +225,6 @@
 				4ED65639170FCE81005FEE56 /* DPSNode.h in Headers */,
 				4ED6563D17107ECB005FEE56 /* DPSHistoryItem.h in Headers */,
 				4ED6564117108786005FEE56 /* JVectorClock.h in Headers */,
-				4ED656481710D6F0005FEE56 /* DPSSwarmManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +342,6 @@
 				4ED6563A170FCE81005FEE56 /* DPSNode.m in Sources */,
 				4ED6563E17107ECB005FEE56 /* DPSHistoryItem.m in Sources */,
 				4ED6564217108786005FEE56 /* JVectorClock.m in Sources */,
-				4ED656491710D6F0005FEE56 /* DPSSwarmManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +519,7 @@
 				4ED6560F170F7867005FEE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED65610170F7867005FEE56 /* Build configuration list for PBXNativeTarget "SwarmTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +528,7 @@
 				4ED65612170F7867005FEE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'JGossip' target in the 'JGossip' project
+// Prefix header for all source files of the 'Swarm' target in the 'Swarm' project
 //
 
 #ifdef __OBJC__
@@ -12,6 +12,6 @@
     #endif
 #endif
 
-#define JSWARM_PORT 11110
-#define JSWARM_READ_TIMEOUT 15.0f
-#define JSWARM_READ_TIMEOUT_EXTENSION 10.0f
+#define SWARM_PORT 11110
+#define SWARM_READ_TIMEOUT 15.0f
+#define SWARM_READ_TIMEOUT_EXTENSION 10.0f
