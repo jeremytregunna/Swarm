@@ -30,6 +30,7 @@
 		4ED6564117108786005FEE56 /* JVectorClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563F17108786005FEE56 /* JVectorClock.h */; };
 		4ED6564217108786005FEE56 /* JVectorClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6564017108786005FEE56 /* JVectorClock.m */; };
 		4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656441710A650005FEE56 /* JVectorClockTests.m */; };
+		4ED6574D17130567005FEE56 /* DPSHistoryItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6574C17130567005FEE56 /* DPSHistoryItemTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		4ED6564017108786005FEE56 /* JVectorClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClock.m; sourceTree = "<group>"; };
 		4ED656431710A650005FEE56 /* JVectorClockTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVectorClockTests.h; sourceTree = "<group>"; };
 		4ED656441710A650005FEE56 /* JVectorClockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClockTests.m; sourceTree = "<group>"; };
+		4ED6574B17130567005FEE56 /* DPSHistoryItemTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSHistoryItemTests.h; sourceTree = "<group>"; };
+		4ED6574C17130567005FEE56 /* DPSHistoryItemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSHistoryItemTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,8 @@
 			children = (
 				4ED65632170FA13F005FEE56 /* DPSMessageTests.h */,
 				4ED65633170FA13F005FEE56 /* DPSMessageTests.m */,
+				4ED6574B17130567005FEE56 /* DPSHistoryItemTests.h */,
+				4ED6574C17130567005FEE56 /* DPSHistoryItemTests.m */,
 				4ED656431710A650005FEE56 /* JVectorClockTests.h */,
 				4ED656441710A650005FEE56 /* JVectorClockTests.m */,
 				4ED65608170F7867005FEE56 /* SwarmTests.h */,
@@ -352,6 +357,7 @@
 				4ED6560A170F7867005FEE56 /* SwarmTests.m in Sources */,
 				4ED65634170FA13F005FEE56 /* DPSMessageTests.m in Sources */,
 				4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */,
+				4ED6574D17130567005FEE56 /* DPSHistoryItemTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
