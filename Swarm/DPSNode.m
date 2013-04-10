@@ -12,6 +12,7 @@
 
 @interface DPSNode ()
 @property (readwrite, getter = isRunning) BOOL running;
+@property (nonatomic, strong) GCDAsyncSocket* listenSocket;
 
 - (instancetype)initWithNodeID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource;
 @end
@@ -20,7 +21,6 @@
 {
     dispatch_queue_t _socketQueue;
     NSMutableArray* _connectedSockets;
-    GCDAsyncSocket* _listenSocket;
 }
 
 + (instancetype)nodeWithID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource
@@ -69,7 +69,7 @@
             NSString* hostName = hostComponents[0];
             uint16_t port;
             if([hostComponents count] > 1)
-                port = [hostComponents[1] unsignedShortValue];
+                port = (unsigned short)[hostComponents[1] intValue];
             else
                 port = SWARM_PORT;
 
