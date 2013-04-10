@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface Swarm : NSObject
-
-@end
+#import "DPSHistoryItem.h"
+#import "DPSMessage.h"
+#import "DPSNode.h"
+#import "JVectorClock.h"
