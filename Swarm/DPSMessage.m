@@ -21,6 +21,18 @@
     return [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
 }
 
++ (instancetype)messageWithDictionary:(NSDictionary*)dictionary
+{
+    DPSMessagePurpose purpose = [dictionary[@"purpose"] charValue];
+    uint32_t sender = [dictionary[@"sender"] unsignedIntValue];
+    uint32_t receiver = [dictionary[@"receiver"] unsignedIntValue];
+    NSDictionary* payload = dictionary[@"payload"];
+    DPSMessage* msg = [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
+    msg->_messageID = dictionary[@"messageID"];
+
+    return msg;
+}
+
 - (instancetype)initWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
 {
     if((self = [super init]))

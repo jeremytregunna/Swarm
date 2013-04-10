@@ -38,6 +38,17 @@
     return msg;
 }
 
+- (void)testMessageFromSampleDictionary
+{
+    DPSMessage* msg = [DPSMessage messageWithDictionary:sample];
+    STAssertNotNil(msg, @"DPSMessage must not be nil");
+    STAssertEqualObjects(msg.messageID, sample[@"messageID"], @"Message ID match");
+    STAssertEquals(msg.purpose, [sample[@"purpose"] charValue], @"Message purpose match");
+    STAssertEquals(msg.sender, [sample[@"sender"] unsignedIntValue], @"Message sender match");
+    STAssertEquals(msg.receiver, [sample[@"receiver"] unsignedIntValue], @"Message receiver match");
+    STAssertEqualObjects(msg.payload, sample[@"payload"], @"Message payload match");
+}
+
 - (void)testMessageID
 {
     DPSMessage* msg = [self messageFromSample];

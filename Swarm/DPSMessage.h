@@ -26,5 +26,6 @@ typedef NS_ENUM(char, DPSMessagePurpose)
 @property (nonatomic, readonly, copy) NSDictionary* payload;
 
 + (instancetype)messageWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
++ (instancetype)messageWithDictionary:(NSDictionary*)dictionary;
 - (NSDictionary*)dictionaryFromFields;
 @end
