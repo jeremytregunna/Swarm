@@ -130,9 +130,9 @@
     uint16_t port = [newSocket connectedPort];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        @autoreleasepool {
-            JDLog(@"Accepted client %@:%hu", host, port);
-        }
+        if([self.delegate respondsToSelector:@selector(didAcceptNewClientForNode:)])
+            [self.delegate didAcceptNewClientForNode:self];
+        JDLog(@"Accepted client %@:%hu", host, port);
     });
 
     [newSocket readDataToData:[GCDAsyncSocket LFData] withTimeout:-1 tag:0];
@@ -157,7 +157,11 @@
         DPSHistoryItem* historyItem = [DPSHistoryItem historyItemWithMessageID:messageID];
         [self.historyDataSource storeHistoryItem:historyItem];
 
-        JDLog(@"JSON received: %@", options);
+        if([options[@"receiver"] isEqual:@(self.nodeID)])
+        {
+            DPSMessage* msg = [DPSMessage messageWithDictionary:options];
+            [self.delegate node:self didReceiveMessage:msg];
+        }
 
         // TODO: Forward message.
     }
@@ -178,19 +182,22 @@
 {
     if(sock != _listenSocket)
     {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            @autoreleasepool {
-                JDLog(@"Client disconnected");
-            }
-        });
-
         @synchronized(_connectedSockets)
         {
             [_connectedSockets removeObject:sock];
         }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([self.delegate respondsToSelector:@selector(didDisconnectClientFromNode:withError:)])
+                [self.delegate didDisconnectClientFromNode:self withError:error];
+        });
     }
-    else if([_listenSocket isConnected] == NO && [_connectedSockets count] == 0)
+    if([_listenSocket isConnected] == NO && [_connectedSockets count] == 0)
+    {
         self.running = NO;
+        if([self.delegate respondsToSelector:@selector(nodeDidStopRunning:)])
+            [self.delegate nodeDidStopRunning:self];
+    }
 }
 
 @end
