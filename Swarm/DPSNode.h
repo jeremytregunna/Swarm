@@ -21,6 +21,7 @@
 
 - (void)listen;
 - (void)listenOnPort:(uint16_t)port;
+- (void)stopListening;
 - (void)connectToNodes:(NSArray*)nodes;
 
 - (BOOL)sendMessage:(DPSMessage*)msg;

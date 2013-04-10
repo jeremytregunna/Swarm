@@ -60,6 +60,17 @@
     self.running = YES;
 }
 
+- (void)stopListening
+{
+    [_listenSocket disconnect];
+
+    @synchronized(_connectedSockets)
+    {
+        [_connectedSockets makeObjectsPerformSelector:@selector(disconnect)];
+    }
+
+}
+
 - (void)connectToNodes:(NSArray*)nodes
 {
     for(NSString* hostAndPortString in nodes)
