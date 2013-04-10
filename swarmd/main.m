@@ -45,7 +45,6 @@ int main(int argc, const char* argv[])
         DPSHistoryWriter* historyWriter = [[DPSHistoryWriter alloc] init];
         DPSNode* root = [DPSNode nodeWithID:1 historyDataSource:historyWriter];
         [root listen];
-        [root performSelector:@selector(stopListening) withObject:nil afterDelay:10.0f];
         while(root.running)
             [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }

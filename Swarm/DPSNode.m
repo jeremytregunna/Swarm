@@ -135,7 +135,7 @@
         }
     });
 
-    [newSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    [newSocket readDataToData:[GCDAsyncSocket LFData] withTimeout:-1 tag:0];
 }
 
 - (void)socket:(GCDAsyncSocket*)sock didReadData:(NSData*)data withTag:(long)tag
