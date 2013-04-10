@@ -1,0 +1,3 @@
+[submodule "Vendor/Criteria"]
+	path = Vendor/Criteria
+	url = https://github.com/wess/Criteria.git
