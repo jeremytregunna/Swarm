@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Swarm.h"
+#import "Criteria.h"
 
 @interface DPSHistoryWriter : NSObject <DPSNodeHistoryDataSource>
 @end
@@ -42,9 +43,19 @@
 int main(int argc, const char* argv[])
 {
     @autoreleasepool {
+        __block NSMutableArray* hosts = [NSMutableArray array];
+        [Criteria addOption:@[@"c", @"connect"] callback:^(NSString* value) {
+            if([value rangeOfString:@"."].location != NSNotFound) // Really bad validation
+                [hosts addObject:value];
+        }];
+        [Criteria run];
+
         DPSHistoryWriter* historyWriter = [[DPSHistoryWriter alloc] init];
         DPSNode* root = [DPSNode nodeWithID:1 historyDataSource:historyWriter];
         [root listen];
+
+        [root connectToNodes:hosts];
+
         while(root.running)
             [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
