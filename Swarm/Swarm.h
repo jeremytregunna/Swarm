@@ -9,4 +9,4 @@
 #import "DPSHistoryItem.h"
 #import "DPSMessage.h"
 #import "DPSNode.h"
-#import "JVectorClock.h"
+#import <JVectorClock/JVectorClock.h>

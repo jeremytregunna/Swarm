@@ -13,6 +13,7 @@
 		4E0258A81715162C00C4AEC0 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
 		4E0258AE1715E04200C4AEC0 /* Criteria.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0258AA1715E04200C4AEC0 /* Criteria.h */; };
 		4E0258AF1715E04200C4AEC0 /* Criteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0258AB1715E04200C4AEC0 /* Criteria.m */; };
+		4EC012AE1719FF1600F65581 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
 		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
 		4ED655FD170F7867005FEE56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655FC170F7867005FEE56 /* SenTestingKit.framework */; };
@@ -31,9 +32,6 @@
 		4ED6563A170FCE81005FEE56 /* DPSNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65638170FCE81005FEE56 /* DPSNode.m */; };
 		4ED6563D17107ECB005FEE56 /* DPSHistoryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563B17107ECB005FEE56 /* DPSHistoryItem.h */; };
 		4ED6563E17107ECB005FEE56 /* DPSHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6563C17107ECB005FEE56 /* DPSHistoryItem.m */; };
-		4ED6564117108786005FEE56 /* JVectorClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563F17108786005FEE56 /* JVectorClock.h */; };
-		4ED6564217108786005FEE56 /* JVectorClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6564017108786005FEE56 /* JVectorClock.m */; };
-		4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656441710A650005FEE56 /* JVectorClockTests.m */; };
 		4ED6574D17130567005FEE56 /* DPSHistoryItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6574C17130567005FEE56 /* DPSHistoryItemTests.m */; };
 		4ED657551713830A005FEE56 /* DPSNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED657541713830A005FEE56 /* DPSNodeTests.m */; };
 /* End PBXBuildFile section */
@@ -45,6 +43,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4ED655E2170F7867005FEE56;
 			remoteInfo = Swarm;
+		};
+		4EC012A61719FEF600F65581 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4ED6565417110B14005FEE56;
+			remoteInfo = JVectorClock;
+		};
+		4EC012A81719FEF600F65581 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4ED6566C17110B14005FEE56;
+			remoteInfo = JVectorClockTests;
+		};
+		4EC012AA1719FEF600F65581 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4ED6569917110BED005FEE56;
+			remoteInfo = "JVectorClock-iOS";
+		};
+		4EC012AC1719FF0000F65581 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4ED6565317110B14005FEE56;
+			remoteInfo = JVectorClock;
 		};
 		4ED655FF170F7867005FEE56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -76,6 +102,7 @@
 		4E0258A11715122700C4AEC0 /* swarmd.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = swarmd.1; sourceTree = "<group>"; };
 		4E0258AA1715E04200C4AEC0 /* Criteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Criteria.h; sourceTree = "<group>"; };
 		4E0258AB1715E04200C4AEC0 /* Criteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Criteria.m; sourceTree = "<group>"; };
+		4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JVectorClock.xcodeproj; path = JVectorClock/JVectorClock.xcodeproj; sourceTree = "<group>"; };
 		4ED655E3170F7867005FEE56 /* Swarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED655E6170F7867005FEE56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4ED655E9170F7867005FEE56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -102,10 +129,6 @@
 		4ED65638170FCE81005FEE56 /* DPSNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSNode.m; sourceTree = "<group>"; };
 		4ED6563B17107ECB005FEE56 /* DPSHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSHistoryItem.h; sourceTree = "<group>"; };
 		4ED6563C17107ECB005FEE56 /* DPSHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSHistoryItem.m; sourceTree = "<group>"; };
-		4ED6563F17108786005FEE56 /* JVectorClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVectorClock.h; sourceTree = "<group>"; };
-		4ED6564017108786005FEE56 /* JVectorClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClock.m; sourceTree = "<group>"; };
-		4ED656431710A650005FEE56 /* JVectorClockTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVectorClockTests.h; sourceTree = "<group>"; };
-		4ED656441710A650005FEE56 /* JVectorClockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVectorClockTests.m; sourceTree = "<group>"; };
 		4ED6574B17130567005FEE56 /* DPSHistoryItemTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSHistoryItemTests.h; sourceTree = "<group>"; };
 		4ED6574C17130567005FEE56 /* DPSHistoryItemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSHistoryItemTests.m; sourceTree = "<group>"; };
 		4ED657531713830A005FEE56 /* DPSNodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSNodeTests.h; sourceTree = "<group>"; };
@@ -126,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC012AE1719FF1600F65581 /* JVectorClock.framework in Frameworks */,
 				4ED65636170FA563005FEE56 /* Security.framework in Frameworks */,
 				4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */,
 			);
@@ -169,6 +193,16 @@
 				4E0258AB1715E04200C4AEC0 /* Criteria.m */,
 			);
 			path = Criteria;
+			sourceTree = "<group>";
+		};
+		4EC012A11719FEF500F65581 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4EC012A71719FEF600F65581 /* JVectorClock.framework */,
+				4EC012A91719FEF600F65581 /* JVectorClockTests.octest */,
+				4EC012AB1719FEF600F65581 /* libJVectorClock-iOS.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		4ED655D9170F7867005FEE56 = {
@@ -224,8 +258,6 @@
 				4ED6562C170F7AE0005FEE56 /* DPSMessage.m */,
 				4ED65637170FCE81005FEE56 /* DPSNode.h */,
 				4ED65638170FCE81005FEE56 /* DPSNode.m */,
-				4ED6563F17108786005FEE56 /* JVectorClock.h */,
-				4ED6564017108786005FEE56 /* JVectorClock.m */,
 				4ED655F3170F7867005FEE56 /* Swarm.h */,
 				4ED655ED170F7867005FEE56 /* Supporting Files */,
 			);
@@ -251,8 +283,6 @@
 				4ED65633170FA13F005FEE56 /* DPSMessageTests.m */,
 				4ED657531713830A005FEE56 /* DPSNodeTests.h */,
 				4ED657541713830A005FEE56 /* DPSNodeTests.m */,
-				4ED656431710A650005FEE56 /* JVectorClockTests.h */,
-				4ED656441710A650005FEE56 /* JVectorClockTests.m */,
 				4ED65603170F7867005FEE56 /* Supporting Files */,
 			);
 			path = SwarmTests;
@@ -270,6 +300,7 @@
 		4ED6561D170F7925005FEE56 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */,
 				4E0258A91715E04200C4AEC0 /* Criteria */,
 				4ED6561E170F7925005FEE56 /* GCDAsyncSocket */,
 			);
@@ -299,7 +330,6 @@
 				4ED6562D170F7AE0005FEE56 /* DPSMessage.h in Headers */,
 				4ED65639170FCE81005FEE56 /* DPSNode.h in Headers */,
 				4ED6563D17107ECB005FEE56 /* DPSHistoryItem.h in Headers */,
-				4ED6564117108786005FEE56 /* JVectorClock.h in Headers */,
 				4E0258AE1715E04200C4AEC0 /* Criteria.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +367,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EC012AD1719FF0000F65581 /* PBXTargetDependency */,
 			);
 			name = Swarm;
 			productName = Swarm;
@@ -381,6 +412,12 @@
 			mainGroup = 4ED655D9170F7867005FEE56;
 			productRefGroup = 4ED655E4170F7867005FEE56 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4EC012A11719FEF500F65581 /* Products */;
+					ProjectRef = 4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4ED655E2170F7867005FEE56 /* Swarm */,
@@ -389,6 +426,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4EC012A71719FEF600F65581 /* JVectorClock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JVectorClock.framework;
+			remoteRef = 4EC012A61719FEF600F65581 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4EC012A91719FEF600F65581 /* JVectorClockTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JVectorClockTests.octest;
+			remoteRef = 4EC012A81719FEF600F65581 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4EC012AB1719FEF600F65581 /* libJVectorClock-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJVectorClock-iOS.a";
+			remoteRef = 4EC012AA1719FEF600F65581 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4ED655E1170F7867005FEE56 /* Resources */ = {
@@ -443,7 +504,6 @@
 				4ED6562E170F7AE0005FEE56 /* DPSMessage.m in Sources */,
 				4ED6563A170FCE81005FEE56 /* DPSNode.m in Sources */,
 				4ED6563E17107ECB005FEE56 /* DPSHistoryItem.m in Sources */,
-				4ED6564217108786005FEE56 /* JVectorClock.m in Sources */,
 				4E0258AF1715E04200C4AEC0 /* Criteria.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +513,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED65634170FA13F005FEE56 /* DPSMessageTests.m in Sources */,
-				4ED656451710A651005FEE56 /* JVectorClockTests.m in Sources */,
 				4ED6574D17130567005FEE56 /* DPSHistoryItemTests.m in Sources */,
 				4ED657551713830A005FEE56 /* DPSNodeTests.m in Sources */,
 			);
@@ -466,6 +525,11 @@
 			isa = PBXTargetDependency;
 			target = 4ED655E2170F7867005FEE56 /* Swarm */;
 			targetProxy = 4E0258A61715123D00C4AEC0 /* PBXContainerItemProxy */;
+		};
+		4EC012AD1719FF0000F65581 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JVectorClock;
+			targetProxy = 4EC012AC1719FF0000F65581 /* PBXContainerItemProxy */;
 		};
 		4ED65600170F7867005FEE56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -499,6 +563,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "swarmd/swarmd-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -508,6 +573,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "swarmd/swarmd-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -580,6 +646,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -595,6 +662,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -637,6 +705,7 @@
 				4E0258A41715122700C4AEC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "Swarm" */ = {
 			isa = XCConfigurationList;
