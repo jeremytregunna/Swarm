@@ -117,6 +117,14 @@
     return YES;
 }
 
+- (void)forwardMessageWithOptions:(NSDictionary*)options
+{
+    NSMutableDictionary* forwardOptions = [options mutableCopy];
+    forwardOptions[@"forwardedBy"] = @(self.nodeID);
+    DPSMessage* msg = [DPSMessage messageWithDictionary:forwardOptions];
+    [self sendMessage:msg];
+}
+
 #pragma mark - Socket delegate
 
 - (void)socket:(GCDAsyncSocket*)sock didAcceptNewSocket:(GCDAsyncSocket*)newSocket
@@ -163,7 +171,7 @@
             [self.delegate node:self didReceiveMessage:msg];
         }
 
-        // TODO: Forward message.
+        [self forwardMessageWithOptions:options];
     }
 }
 

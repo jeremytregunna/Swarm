@@ -40,6 +40,7 @@
         _messageID = [NSUUID UUID];
         _purpose = purpose;
         _sender = sender;
+        _forwardedBy = 0;
         _receiver = receiver;
         _payload = [payload copy];
     }
@@ -50,6 +51,7 @@
 {
     typeof(self) result = [[[self class] alloc] initWithPurpose:_purpose from:_sender to:_receiver withPayload:_payload];
     result.messageID = self.messageID;
+    result.forwardedBy = self.forwardedBy;
     return result;
 }
 
@@ -81,6 +83,7 @@
         @"purpose",
         @"sender",
         @"receiver",
+        @"forwardedBy",
         @"payload"
     ];
     return [self dictionaryWithValuesForKeys:keys];
