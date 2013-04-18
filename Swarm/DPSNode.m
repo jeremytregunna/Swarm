@@ -139,7 +139,8 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
             return;
         }
 
-        [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposeHeartbeat];
+        if([sock isConnected])
+            [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposeHeartbeat];
     }
 }
 
@@ -158,7 +159,8 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
 
     for(GCDAsyncSocket* sock in _connectedSockets)
     {
-        [sock writeData:data withTimeout:SWARM_READ_TIMEOUT tag:DPSMessagePurposePayload];
+        if(![sock isConnected])
+            [sock writeData:data withTimeout:SWARM_READ_TIMEOUT tag:DPSMessagePurposePayload];
     }
 
     return YES;
@@ -176,7 +178,7 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
     }
 
     GCDAsyncSocket* sock = _leafSet[@(nodeID)];
-    if(sock != nil)
+    if(sock != nil && [sock isConnected])
     {
         [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposePayload];
         return YES;
