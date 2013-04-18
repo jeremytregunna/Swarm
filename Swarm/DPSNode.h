@@ -12,6 +12,8 @@
 @protocol DPSNodeHistoryDataSource, DPSNodeDelegate;
 @class DPSHistoryItem, DPSMessage;
 
+// This is a candidate to be refactored. DPSNode contains two independent parts at the moment: Swarm control, and Node information.
+// We should be able to extract node information out of swarm control at some future point.
 @interface DPSNode : NSObject <GCDAsyncSocketDelegate>
 @property (nonatomic, readonly) uint32_t nodeID;
 @property (nonatomic, weak) id<DPSNodeDelegate> delegate;
@@ -26,6 +28,7 @@
 - (void)connectToNodes:(NSArray*)nodes;
 
 - (BOOL)sendMessage:(DPSMessage*)msg;
+- (BOOL)sendMessage:(DPSMessage*)msg toNode:(uint32)nodeID;
 @end
 
 @protocol DPSNodeHistoryDataSource <NSObject>

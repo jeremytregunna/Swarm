@@ -10,17 +10,26 @@
 #import "DPSMessage.h"
 #import "DPSHistoryItem.h"
 
+// Time in seconds
+static NSUInteger DPSNodeHeartbeatFrequency = 300;
+static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
+
 @interface DPSNode ()
 @property (readwrite, getter = isRunning) BOOL running;
 @property (nonatomic, strong) GCDAsyncSocket* listenSocket;
 
 - (instancetype)initWithNodeID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource;
+
+- (void)sendHeartbeats;
 @end
 
 @implementation DPSNode
 {
     dispatch_queue_t _socketQueue;
     NSMutableArray* _connectedSockets;
+    NSMutableDictionary* _leafSet;
+    dispatch_queue_t _timerQueue;
+    dispatch_source_t _timer;
 }
 
 + (instancetype)nodeWithID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource
@@ -37,9 +46,27 @@
         _socketQueue = dispatch_queue_create("ca.tregunna.libs.swarm.socket", NULL);
         _listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
         _connectedSockets = [[NSMutableArray alloc] initWithCapacity:1];
+        _leafSet = [NSMutableDictionary dictionary];
         _running = NO;
+
+        _timerQueue = dispatch_queue_create("ca.tregunna.swarm.timer", 0);
+        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, _timerQueue);
+        if(_timer)
+        {
+            dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), DPSNodeHeartbeatFrequency, DPSNodeHeartbeatFrequencyLeeway);
+            dispatch_source_set_event_handler(_timer, ^{
+                [self sendHeartbeats];
+            });
+            dispatch_resume(_timer);
+        }
     }
     return self;
+}
+
+- (void)dealloc
+{
+    dispatch_source_cancel(_timer);
+    _timer = nil;
 }
 
 - (void)listen
@@ -96,6 +123,26 @@
 
 #pragma mark - Sending
 
+- (void)sendHeartbeats
+{
+    for(NSNumber* nodeID in _leafSet)
+    {
+        GCDAsyncSocket* sock = _leafSet[nodeID];
+        NSDictionary* options = @{
+            @"sender": @(self.nodeID)
+        };
+        NSError* error = nil;
+        NSData* data = [NSJSONSerialization dataWithJSONObject:options options:0 error:&error];
+        if(error != nil)
+        {
+            JDLog(@"JSON encoding error when sending: %@", error);
+            return;
+        }
+
+        [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposeHeartbeat];
+    }
+}
+
 - (BOOL)sendMessage:(DPSMessage*)msg
 {
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
@@ -115,6 +162,27 @@
     }
 
     return YES;
+}
+
+- (BOOL)sendMessage:(DPSMessage*)msg toNode:(uint32)nodeID
+{
+    NSDictionary* fieldOptions = [msg dictionaryFromFields];
+    NSError* error = nil;
+    NSData* data = [NSJSONSerialization dataWithJSONObject:fieldOptions options:0 error:&error];
+    if(error != nil)
+    {
+        JDLog(@"JSON encoding error when sending: %@", error);
+        return NO;
+    }
+
+    GCDAsyncSocket* sock = _leafSet[@(nodeID)];
+    if(sock != nil)
+    {
+        [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposePayload];
+        return YES;
+    }
+
+    return NO;
 }
 
 - (void)forwardMessageWithOptions:(NSDictionary*)options
@@ -148,7 +216,7 @@
 
 - (void)socket:(GCDAsyncSocket*)sock didReadData:(NSData*)data withTag:(long)tag
 {
-    if(tag == DPSMessagePurposeHeartbeat || [data length] == 2)
+    if([data length] == 2)
         return;
 
     NSError* error = nil;
@@ -156,6 +224,15 @@
     if(error != nil)
     {
         JDLog(@"Invalid JSON, error: %@", error);
+        return;
+    }
+
+    if(tag == DPSMessagePurposeHeartbeat)
+    {
+        @synchronized(_leafSet)
+        {
+            [_leafSet setObject:sock forKey:options[@"sender"]];
+        }
         return;
     }
 
