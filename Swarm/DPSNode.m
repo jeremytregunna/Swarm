@@ -11,8 +11,8 @@
 #import "DPSHistoryItem.h"
 
 // Time in seconds
-static NSUInteger DPSNodeHeartbeatFrequency = 300;
-static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
+static uint64_t DPSNodeHeartbeatFrequency       = 300 * NSEC_PER_SEC;
+static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 @interface DPSNode () <NSNetServiceDelegate>
 @property (readwrite, getter = isRunning) BOOL running;
@@ -30,6 +30,7 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
     NSMutableDictionary* _leafSet;
     dispatch_queue_t _timerQueue;
     dispatch_source_t _timer;
+    NSNetService* _netService;
 }
 
 + (instancetype)nodeWithID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource
@@ -43,7 +44,7 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
     {
         _nodeID = nodeID;
         _historyDataSource = historyDataSource;
-        _socketQueue = dispatch_queue_create("ca.tregunna.libs.swarm.socket", NULL);
+        _socketQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         _listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
         _connectedSockets = [[NSMutableArray alloc] initWithCapacity:1];
         _leafSet = [NSMutableDictionary dictionary];
@@ -109,7 +110,7 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
             NSString* hostName = hostComponents[0];
             uint16_t port;
             if([hostComponents count] > 1)
-                port = (unsigned short)[hostComponents[1] intValue];
+                port = (uint16_t)[hostComponents[1] intValue];
             else
                 port = SWARM_PORT;
 
@@ -127,10 +128,9 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
 {
     int port = [socket localPort];
     NSString* name = [NSString stringWithFormat:@"%u", self.nodeID];
-    NSNetService* netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_Swarm._tcp." name:name port:port];
-    
-    [netService setDelegate:self];
-    [netService publish];
+    _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_Swarm._tcp." name:@"" port:port];
+    _netService.delegate = self;
+    [_netService publish];
 }
 
 #pragma mark - Sending
@@ -301,20 +301,14 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
 
 #pragma mark - Net service delegate
 
-- (void)netServiceDidPublish:(NSNetService *)ns
+- (void)netServiceDidPublish:(NSNetService*)ns
 {
-	JDLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port(%i)",
-			  [ns domain], [ns type], [ns name], (int)[ns port]);
+	JDLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port(%i)", [ns domain], [ns type], [ns name], (int)[ns port]);
 }
 
-- (void)netService:(NSNetService *)ns didNotPublish:(NSDictionary *)errorDict
+- (void)netService:(NSNetService*)ns didNotPublish:(NSDictionary*)errorDict
 {
-	// Override me to do something here...
-	//
-	// Note: This method in invoked on our bonjour thread.
-    
-	JDLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@) - %@",
-               [ns domain], [ns type], [ns name], errorDict);
+	JDLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@) - %@", [ns domain], [ns type], [ns name], errorDict);
 }
 
 @end

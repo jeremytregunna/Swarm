@@ -13,6 +13,15 @@
 		4E0258A81715162C00C4AEC0 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
 		4E0258AE1715E04200C4AEC0 /* Criteria.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0258AA1715E04200C4AEC0 /* Criteria.h */; };
 		4E0258AF1715E04200C4AEC0 /* Criteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0258AB1715E04200C4AEC0 /* Criteria.m */; };
+		4EB2E1911722E9F800667537 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
+		4EB2E1971722E9F800667537 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EB2E1951722E9F800667537 /* InfoPlist.strings */; };
+		4EB2E1991722E9F800667537 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1981722E9F800667537 /* main.m */; };
+		4EB2E19D1722E9F800667537 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB2E19B1722E9F800667537 /* Credits.rtf */; };
+		4EB2E1A01722E9F800667537 /* HATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E19F1722E9F800667537 /* HATAppDelegate.m */; };
+		4EB2E1A31722E9F800667537 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB2E1A11722E9F800667537 /* MainMenu.xib */; };
+		4EB2E1AB1722EA1B00667537 /* HATMessageHistorySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1AA1722EA1B00667537 /* HATMessageHistorySource.m */; };
+		4EB2E1AC1722EB0200667537 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
+		4EB2E1AD1722EB0700667537 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4EC012AE1719FF1600F65581 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
 		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
@@ -102,6 +111,17 @@
 		4E0258A11715122700C4AEC0 /* swarmd.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = swarmd.1; sourceTree = "<group>"; };
 		4E0258AA1715E04200C4AEC0 /* Criteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Criteria.h; sourceTree = "<group>"; };
 		4E0258AB1715E04200C4AEC0 /* Criteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Criteria.m; sourceTree = "<group>"; };
+		4EB2E1901722E9F800667537 /* SwarmTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwarmTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB2E1941722E9F800667537 /* SwarmTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwarmTest-Info.plist"; sourceTree = "<group>"; };
+		4EB2E1961722E9F800667537 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EB2E1981722E9F800667537 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EB2E19A1722E9F800667537 /* SwarmTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwarmTest-Prefix.pch"; sourceTree = "<group>"; };
+		4EB2E19C1722E9F800667537 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4EB2E19E1722E9F800667537 /* HATAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HATAppDelegate.h; sourceTree = "<group>"; };
+		4EB2E19F1722E9F800667537 /* HATAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HATAppDelegate.m; sourceTree = "<group>"; };
+		4EB2E1A21722E9F800667537 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4EB2E1A91722EA1B00667537 /* HATMessageHistorySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HATMessageHistorySource.h; sourceTree = "<group>"; };
+		4EB2E1AA1722EA1B00667537 /* HATMessageHistorySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HATMessageHistorySource.m; sourceTree = "<group>"; };
 		4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JVectorClock.xcodeproj; path = JVectorClock/JVectorClock.xcodeproj; sourceTree = "<group>"; };
 		4ED655E3170F7867005FEE56 /* Swarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED655E6170F7867005FEE56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -142,6 +162,16 @@
 			files = (
 				4E0258A81715162C00C4AEC0 /* Swarm.framework in Frameworks */,
 				4E02589B1715122700C4AEC0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EB2E18D1722E9F800667537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB2E1AD1722EB0700667537 /* JVectorClock.framework in Frameworks */,
+				4EB2E1AC1722EB0200667537 /* Swarm.framework in Frameworks */,
+				4EB2E1911722E9F800667537 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +225,31 @@
 			path = Criteria;
 			sourceTree = "<group>";
 		};
+		4EB2E1921722E9F800667537 /* SwarmTest */ = {
+			isa = PBXGroup;
+			children = (
+				4EB2E1A91722EA1B00667537 /* HATMessageHistorySource.h */,
+				4EB2E1AA1722EA1B00667537 /* HATMessageHistorySource.m */,
+				4EB2E19E1722E9F800667537 /* HATAppDelegate.h */,
+				4EB2E19F1722E9F800667537 /* HATAppDelegate.m */,
+				4EB2E1A11722E9F800667537 /* MainMenu.xib */,
+				4EB2E1931722E9F800667537 /* Supporting Files */,
+			);
+			path = SwarmTest;
+			sourceTree = "<group>";
+		};
+		4EB2E1931722E9F800667537 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EB2E1941722E9F800667537 /* SwarmTest-Info.plist */,
+				4EB2E1951722E9F800667537 /* InfoPlist.strings */,
+				4EB2E1981722E9F800667537 /* main.m */,
+				4EB2E19A1722E9F800667537 /* SwarmTest-Prefix.pch */,
+				4EB2E19B1722E9F800667537 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4EC012A11719FEF500F65581 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +266,7 @@
 				4ED655EC170F7867005FEE56 /* Swarm */,
 				4ED6561D170F7925005FEE56 /* Vendor */,
 				4E02589C1715122700C4AEC0 /* swarmd */,
+				4EB2E1921722E9F800667537 /* SwarmTest */,
 				4ED65602170F7867005FEE56 /* SwarmTests */,
 				4ED655E5170F7867005FEE56 /* Frameworks */,
 				4ED655E4170F7867005FEE56 /* Products */,
@@ -223,6 +279,7 @@
 				4ED655E3170F7867005FEE56 /* Swarm.framework */,
 				4ED655FB170F7867005FEE56 /* SwarmTests.octest */,
 				4E0258991715122700C4AEC0 /* swarmd */,
+				4EB2E1901722E9F800667537 /* SwarmTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -355,6 +412,23 @@
 			productReference = 4E0258991715122700C4AEC0 /* swarmd */;
 			productType = "com.apple.product-type.tool";
 		};
+		4EB2E18F1722E9F800667537 /* SwarmTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EB2E1A81722E9F800667537 /* Build configuration list for PBXNativeTarget "SwarmTest" */;
+			buildPhases = (
+				4EB2E18C1722E9F800667537 /* Sources */,
+				4EB2E18D1722E9F800667537 /* Frameworks */,
+				4EB2E18E1722E9F800667537 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwarmTest;
+			productName = SwarmTest;
+			productReference = 4EB2E1901722E9F800667537 /* SwarmTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		4ED655E2170F7867005FEE56 /* Swarm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4ED6560D170F7867005FEE56 /* Build configuration list for PBXNativeTarget "Swarm" */;
@@ -423,6 +497,7 @@
 				4ED655E2170F7867005FEE56 /* Swarm */,
 				4ED655FA170F7867005FEE56 /* SwarmTests */,
 				4E0258981715122700C4AEC0 /* swarmd */,
+				4EB2E18F1722E9F800667537 /* SwarmTest */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +527,16 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4EB2E18E1722E9F800667537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB2E1971722E9F800667537 /* InfoPlist.strings in Resources */,
+				4EB2E19D1722E9F800667537 /* Credits.rtf in Resources */,
+				4EB2E1A31722E9F800667537 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4ED655E1170F7867005FEE56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,6 +577,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E02589E1715122700C4AEC0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EB2E18C1722E9F800667537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB2E1991722E9F800667537 /* main.m in Sources */,
+				4EB2E1A01722E9F800667537 /* HATAppDelegate.m in Sources */,
+				4EB2E1AB1722EA1B00667537 /* HATMessageHistorySource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +634,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4EB2E1951722E9F800667537 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EB2E1961722E9F800667537 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4EB2E19B1722E9F800667537 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EB2E19C1722E9F800667537 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		4EB2E1A11722E9F800667537 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EB2E1A21722E9F800667537 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		4ED655EF170F7867005FEE56 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -575,6 +694,36 @@
 				GCC_PREFIX_HEADER = "swarmd/swarmd-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4EB2E1A41722E9F800667537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer: Jeremy Tregunna (SH4BEB8U3Z)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SwarmTest/SwarmTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
+				INFOPLIST_FILE = "SwarmTest/SwarmTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4EB2E1A51722E9F800667537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer: Jeremy Tregunna (SH4BEB8U3Z)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SwarmTest/SwarmTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
+				INFOPLIST_FILE = "SwarmTest/SwarmTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -640,6 +789,7 @@
 		4ED6560E170F7867005FEE56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer: Jeremy Tregunna (SH4BEB8U3Z)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -649,6 +799,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -656,6 +807,7 @@
 		4ED6560F170F7867005FEE56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer: Jeremy Tregunna (SH4BEB8U3Z)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -665,6 +817,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -706,6 +859,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4EB2E1A81722E9F800667537 /* Build configuration list for PBXNativeTarget "SwarmTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EB2E1A41722E9F800667537 /* Debug */,
+				4EB2E1A51722E9F800667537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "Swarm" */ = {
 			isa = XCConfigurationList;
