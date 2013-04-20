@@ -14,7 +14,7 @@
 static NSUInteger DPSNodeHeartbeatFrequency = 300;
 static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
 
-@interface DPSNode ()
+@interface DPSNode () <NSNetServiceDelegate>
 @property (readwrite, getter = isRunning) BOOL running;
 @property (nonatomic, strong) GCDAsyncSocket* listenSocket;
 
@@ -83,6 +83,8 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
         return;
     }
 
+    [self setupBonjourForSocket:_listenSocket];
+
     JDLog(@"Starting server on port %hu", [_listenSocket localPort]);
     self.running = YES;
 }
@@ -119,6 +121,16 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
             }
         }
     }
+}
+
+- (void)setupBonjourForSocket:(GCDAsyncSocket*)socket
+{
+    int port = [socket localPort];
+    NSString* name = [NSString stringWithFormat:@"%u", self.nodeID];
+    NSNetService* netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_Swarm._tcp." name:name port:port];
+    
+    [netService setDelegate:self];
+    [netService publish];
 }
 
 #pragma mark - Sending
@@ -285,6 +297,24 @@ static NSUInteger DPSNodeHeartbeatFrequencyLeeway = 10;
         if([self.delegate respondsToSelector:@selector(nodeDidStopRunning:)])
             [self.delegate nodeDidStopRunning:self];
     }
+}
+
+#pragma mark - Net service delegate
+
+- (void)netServiceDidPublish:(NSNetService *)ns
+{
+	JDLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port(%i)",
+			  [ns domain], [ns type], [ns name], (int)[ns port]);
+}
+
+- (void)netService:(NSNetService *)ns didNotPublish:(NSDictionary *)errorDict
+{
+	// Override me to do something here...
+	//
+	// Note: This method in invoked on our bonjour thread.
+    
+	JDLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@) - %@",
+               [ns domain], [ns type], [ns name], errorDict);
 }
 
 @end

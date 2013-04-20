@@ -11,6 +11,7 @@
 
 @interface DPSMessage (PrivateMethods)
 @property (nonatomic, readwrite, strong) NSUUID* messageID;
+@property (nonatomic, readwrite, strong) NSDate* date;
 @end
 
 @implementation DPSMessageTests
@@ -27,6 +28,8 @@
         @"purpose": @(DPSMessagePurposePayload),
         @"sender": @(1),
         @"receiver": @(2),
+        @"forwardedBy": @(0),
+        @"date": [NSDate dateWithTimeIntervalSince1970:344533500],
         @"payload": @{ @"test": @"data" }
     };
 }
@@ -35,6 +38,7 @@
 {
     DPSMessage* msg = [DPSMessage messageWithPurpose:[sample[@"purpose"] charValue] from:[sample[@"sender"] unsignedIntValue] to:[sample[@"receiver"] unsignedIntValue] withPayload:sample[@"payload"]];
     msg.messageID = sample[@"messageID"];
+    msg.date = sample[@"date"];
     return msg;
 }
 
@@ -71,6 +75,12 @@
 {
     DPSMessage* msg = [self messageFromSample];
     STAssertEquals(msg.receiver, [sample[@"receiver"] unsignedIntValue], @"Receiver differs");
+}
+
+- (void)testDate
+{
+    DPSMessage* msg = [self messageFromSample];
+    STAssertEquals([msg.date timeIntervalSince1970], [sample[@"date"] timeIntervalSince1970], @"Date differs");
 }
 
 - (void)testPayload

@@ -10,6 +10,7 @@
 
 @interface DPSMessage ()
 @property (nonatomic, readwrite, strong) NSUUID* messageID;
+@property (nonatomic, readwrite, strong) NSDate* date;
 
 - (instancetype)initWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
 @end
@@ -42,6 +43,7 @@
         _sender = sender;
         _forwardedBy = 0;
         _receiver = receiver;
+        _date = [NSDate date];
         _payload = [payload copy];
     }
     return self;
@@ -52,12 +54,13 @@
     typeof(self) result = [[[self class] alloc] initWithPurpose:_purpose from:_sender to:_receiver withPayload:_payload];
     result.messageID = self.messageID;
     result.forwardedBy = self.forwardedBy;
+    result.date = self.date;
     return result;
 }
 
 - (BOOL)isEqual:(DPSMessage*)other
 {
-    return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_payload isEqualToDictionary:other.payload];
+    return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_date isEqualToDate:other.date] && [_payload isEqualToDictionary:other.payload];
 }
 
 - (NSUInteger)hash
@@ -69,6 +72,7 @@
     result = prime * result + _purpose;
     result = prime * result + _sender;
     result = prime * result + _receiver;
+    result = prime * result + [_date hash];
     result = prime * result + [_payload hash];
 
     return result;
@@ -84,6 +88,7 @@
         @"sender",
         @"receiver",
         @"forwardedBy",
+        @"date",
         @"payload"
     ];
     return [self dictionaryWithValuesForKeys:keys];
