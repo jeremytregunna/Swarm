@@ -22,6 +22,8 @@
 		4EB2E1B31724316E00667537 /* SwarmBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B11724316E00667537 /* SwarmBonjourServer.m */; };
 		4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B41724338000667537 /* SwarmCoordinator.h */; };
 		4EB2E1B71724338000667537 /* SwarmCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B51724338000667537 /* SwarmCoordinator.m */; };
+		4EB2E1BA17244FC700667537 /* SwarmBonjourClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B817244FC700667537 /* SwarmBonjourClient.h */; };
+		4EB2E1BB17244FC700667537 /* SwarmBonjourClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B917244FC700667537 /* SwarmBonjourClient.m */; };
 		4EC012AE1719FF1600F65581 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
 		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
@@ -100,6 +102,8 @@
 		4EB2E1B11724316E00667537 /* SwarmBonjourServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwarmBonjourServer.m; sourceTree = "<group>"; };
 		4EB2E1B41724338000667537 /* SwarmCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwarmCoordinator.h; sourceTree = "<group>"; };
 		4EB2E1B51724338000667537 /* SwarmCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwarmCoordinator.m; sourceTree = "<group>"; };
+		4EB2E1B817244FC700667537 /* SwarmBonjourClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwarmBonjourClient.h; sourceTree = "<group>"; };
+		4EB2E1B917244FC700667537 /* SwarmBonjourClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwarmBonjourClient.m; sourceTree = "<group>"; };
 		4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JVectorClock.xcodeproj; path = JVectorClock/JVectorClock.xcodeproj; sourceTree = "<group>"; };
 		4ED655E3170F7867005FEE56 /* Swarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED655E6170F7867005FEE56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -259,6 +263,8 @@
 				4EB2E1B51724338000667537 /* SwarmCoordinator.m */,
 				4EB2E1B01724316E00667537 /* SwarmBonjourServer.h */,
 				4EB2E1B11724316E00667537 /* SwarmBonjourServer.m */,
+				4EB2E1B817244FC700667537 /* SwarmBonjourClient.h */,
+				4EB2E1B917244FC700667537 /* SwarmBonjourClient.m */,
 				4ED655F3170F7867005FEE56 /* Swarm.h */,
 				4ED655ED170F7867005FEE56 /* Supporting Files */,
 			);
@@ -332,6 +338,7 @@
 				4ED6563D17107ECB005FEE56 /* SwarmHistoryItem.h in Headers */,
 				4EB2E1B21724316E00667537 /* SwarmBonjourServer.h in Headers */,
 				4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */,
+				4EB2E1BA17244FC700667537 /* SwarmBonjourClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +527,7 @@
 				4ED6563E17107ECB005FEE56 /* SwarmHistoryItem.m in Sources */,
 				4EB2E1B31724316E00667537 /* SwarmBonjourServer.m in Sources */,
 				4EB2E1B71724338000667537 /* SwarmCoordinator.m in Sources */,
+				4EB2E1BB17244FC700667537 /* SwarmBonjourClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

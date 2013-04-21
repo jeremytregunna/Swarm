@@ -14,14 +14,13 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    __block NSMutableArray* hosts = [NSMutableArray array];
-    
     HATMessageHistorySource* historyWriter = [[HATMessageHistorySource alloc] init];
     SwarmNode* root = [SwarmNode nodeWithID:1];
     SwarmCoordinator* coordinator = [[SwarmCoordinator alloc] initWithNode:root historyDataSource:historyWriter];
-    [coordinator listen];
+    [coordinator listenOnPort:0];
 
-    [coordinator connectToNodes:hosts];
+//    [coordinator connectToNodes:hosts];
+    [coordinator startScanningForPeers];
 }
 
 @end

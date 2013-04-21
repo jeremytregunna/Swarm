@@ -1,5 +1,5 @@
 //
-//  JBonjourServer.h
+//  SwarmBonjourClient.h
 //  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-21.
@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class GCDAsyncSocket, SwarmCoordinator;
+@class SwarmCoordinator;
 
-@interface SwarmBonjourServer : NSObject <NSNetServiceDelegate>
+@interface SwarmBonjourClient : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
 - (instancetype)initWithCoordinator:(SwarmCoordinator*)coordinator;
 
-- (void)advertiseForSocket:(GCDAsyncSocket*)socket;
-- (void)stopAdvertising;
+- (void)startScanningForPeers;
 
 @end

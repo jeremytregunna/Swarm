@@ -9,8 +9,9 @@
 #import "SwarmCoordinator.h"
 #import "SwarmNode.h"
 #import "SwarmMessage.h"
-#import "SwarmBonjourServer.h"
 #import "SwarmHistoryItem.h"
+#import "SwarmBonjourServer.h"
+#import "SwarmBonjourClient.h"
 
 // Time in seconds
 static uint64_t SwarmNodeHeartbeatFrequency       = 300 * NSEC_PER_SEC;
@@ -32,6 +33,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     dispatch_source_t _timer;
 
     SwarmBonjourServer* _bonjourServer;
+    SwarmBonjourClient* _bonjourClient;
 }
 
 - (instancetype)initWithNode:(SwarmNode*)node
@@ -88,7 +90,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     }
 
     if(_bonjourServer == nil)
-        _bonjourServer = [[SwarmBonjourServer alloc] init];
+        _bonjourServer = [[SwarmBonjourServer alloc] initWithCoordinator:self];
     [_bonjourServer advertiseForSocket:_listenSocket];
 
     JDLog(@"Starting server on port %hu", _listenSocket.localPort);
@@ -97,6 +99,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 - (void)stopListening
 {
+    [_bonjourServer stopAdvertising];
     [_listenSocket disconnect];
 
     @synchronized(_connectedSockets)
@@ -107,25 +110,26 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 #pragma mark - Connecting
 
-- (void)connectToNodes:(NSArray*)nodes
+- (void)startScanningForPeers
 {
-    for(NSString* hostAndPortString in nodes)
+    if(_bonjourClient == nil)
+        _bonjourClient = [[SwarmBonjourClient alloc] initWithCoordinator:self];
+    [_bonjourClient startScanningForPeers];
+}
+
+- (void)connectToAddresses:(NSArray*)addrs withNodeID:(uint32_t)nodeID
+{
+    for(NSData* addr in addrs)
     {
         @autoreleasepool {
-            NSArray* hostComponents = [hostAndPortString componentsSeparatedByString:@":"];
-            NSString* hostName = hostComponents[0];
-            uint16_t port;
-            if([hostComponents count] > 1)
-                port = (uint16_t)[hostComponents[1] intValue];
-            else
-                port = SWARM_PORT;
-            
             GCDAsyncSocket* asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
             NSError* error = nil;
-            if(![asyncSocket connectToHost:hostName onPort:port withTimeout:SWARM_READ_TIMEOUT error:&error])
+            if(![asyncSocket connectToAddress:addr withTimeout:SWARM_READ_TIMEOUT error:&error])
             {
-                JDLog(@"Error connecting to %@. Reason: %@", hostAndPortString, error);
+                JDLog(@"Error connecting to %@. Reason: %@", addr, error);
             }
+            else
+                _leafSet[@(nodeID)] = asyncSocket;
         }
     }
 }
@@ -147,7 +151,10 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         }
         
         if([sock isConnected])
+        {
             [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposeHeartbeat];
+            JDLog(@"Sent heartbeat: %@ to Node ID: %@", options, nodeID);
+        }
     }
 }
 

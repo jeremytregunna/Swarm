@@ -8,16 +8,28 @@
 
 #import "GCDAsyncSocket.h"
 #import "SwarmBonjourServer.h"
+#import "SwarmCoordinator.h"
+#import "SwarmNode.h"
 
 @implementation SwarmBonjourServer
 {
+    __weak SwarmCoordinator* _coordinator;
     NSNetService* _netService;
+}
+
+- (instancetype)initWithCoordinator:(SwarmCoordinator*)coordinator
+{
+    if((self = [super init]))
+        _coordinator = coordinator;
+    return self;
 }
 
 - (void)advertiseForSocket:(GCDAsyncSocket*)socket
 {
     int port = [socket localPort];
-    _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_swarm._tcp." name:@"" port:port];
+    NSString* name = [NSString stringWithFormat:@"%u", _coordinator.me.nodeID];
+
+    _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_swarm._tcp." name:name port:port];
     _netService.delegate = self;
     [_netService publish];
 }
