@@ -1,6 +1,3 @@
-[submodule "Vendor/Criteria"]
-	path = Vendor/Criteria
-	url = https://github.com/wess/Criteria.git
 [submodule "Vendor/JVectorClock"]
 	path = Vendor/JVectorClock
 	url = git@github.com:jeremytregunna/JVectorClock.git
