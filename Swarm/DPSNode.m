@@ -127,8 +127,7 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 - (void)setupBonjourForSocket:(GCDAsyncSocket*)socket
 {
     int port = [socket localPort];
-    NSString* name = [NSString stringWithFormat:@"%u", self.nodeID];
-    _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_Swarm._tcp." name:@"" port:port];
+    _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_swarm._tcp." name:@"" port:port];
     _netService.delegate = self;
     [_netService publish];
 }

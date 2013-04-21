@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E02589B1715122700C4AEC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02589A1715122700C4AEC0 /* Foundation.framework */; };
-		4E02589E1715122700C4AEC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02589D1715122700C4AEC0 /* main.m */; };
-		4E0258A21715122700C4AEC0 /* swarmd.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E0258A11715122700C4AEC0 /* swarmd.1 */; };
-		4E0258A81715162C00C4AEC0 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
 		4E0258AE1715E04200C4AEC0 /* Criteria.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0258AA1715E04200C4AEC0 /* Criteria.h */; };
 		4E0258AF1715E04200C4AEC0 /* Criteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0258AB1715E04200C4AEC0 /* Criteria.m */; };
 		4EB2E1911722E9F800667537 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
@@ -22,6 +18,8 @@
 		4EB2E1AB1722EA1B00667537 /* HATMessageHistorySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1AA1722EA1B00667537 /* HATMessageHistorySource.m */; };
 		4EB2E1AC1722EB0200667537 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
 		4EB2E1AD1722EB0700667537 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
+		4EB2E1AE1723804D00667537 /* Swarm.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
+		4EB2E1AF1723805B00667537 /* JVectorClock.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4EC012AE1719FF1600F65581 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
 		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
@@ -46,13 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4E0258A61715123D00C4AEC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4ED655DA170F7867005FEE56 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4ED655E2170F7867005FEE56;
-			remoteInfo = Swarm;
-		};
 		4EC012A61719FEF600F65581 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */;
@@ -90,25 +81,8 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		4E0258971715122700C4AEC0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				4E0258A21715122700C4AEC0 /* swarmd.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		4E0258991715122700C4AEC0 /* swarmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swarmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E02589A1715122700C4AEC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4E02589D1715122700C4AEC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E0258A01715122700C4AEC0 /* swarmd-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swarmd-Prefix.pch"; sourceTree = "<group>"; };
-		4E0258A11715122700C4AEC0 /* swarmd.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = swarmd.1; sourceTree = "<group>"; };
 		4E0258AA1715E04200C4AEC0 /* Criteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Criteria.h; sourceTree = "<group>"; };
 		4E0258AB1715E04200C4AEC0 /* Criteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Criteria.m; sourceTree = "<group>"; };
 		4EB2E1901722E9F800667537 /* SwarmTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwarmTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,15 +130,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4E0258961715122700C4AEC0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E0258A81715162C00C4AEC0 /* Swarm.framework in Frameworks */,
-				4E02589B1715122700C4AEC0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4EB2E18D1722E9F800667537 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,24 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E02589C1715122700C4AEC0 /* swarmd */ = {
-			isa = PBXGroup;
-			children = (
-				4E02589D1715122700C4AEC0 /* main.m */,
-				4E0258A11715122700C4AEC0 /* swarmd.1 */,
-				4E02589F1715122700C4AEC0 /* Supporting Files */,
-			);
-			path = swarmd;
-			sourceTree = "<group>";
-		};
-		4E02589F1715122700C4AEC0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4E0258A01715122700C4AEC0 /* swarmd-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		4E0258A91715E04200C4AEC0 /* Criteria */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +212,6 @@
 			children = (
 				4ED655EC170F7867005FEE56 /* Swarm */,
 				4ED6561D170F7925005FEE56 /* Vendor */,
-				4E02589C1715122700C4AEC0 /* swarmd */,
 				4EB2E1921722E9F800667537 /* SwarmTest */,
 				4ED65602170F7867005FEE56 /* SwarmTests */,
 				4ED655E5170F7867005FEE56 /* Frameworks */,
@@ -278,7 +224,6 @@
 			children = (
 				4ED655E3170F7867005FEE56 /* Swarm.framework */,
 				4ED655FB170F7867005FEE56 /* SwarmTests.octest */,
-				4E0258991715122700C4AEC0 /* swarmd */,
 				4EB2E1901722E9F800667537 /* SwarmTest.app */,
 			);
 			name = Products;
@@ -394,24 +339,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4E0258981715122700C4AEC0 /* swarmd */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4E0258A51715122700C4AEC0 /* Build configuration list for PBXNativeTarget "swarmd" */;
-			buildPhases = (
-				4E0258951715122700C4AEC0 /* Sources */,
-				4E0258961715122700C4AEC0 /* Frameworks */,
-				4E0258971715122700C4AEC0 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4E0258A71715123D00C4AEC0 /* PBXTargetDependency */,
-			);
-			name = swarmd;
-			productName = swarmd;
-			productReference = 4E0258991715122700C4AEC0 /* swarmd */;
-			productType = "com.apple.product-type.tool";
-		};
 		4EB2E18F1722E9F800667537 /* SwarmTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EB2E1A81722E9F800667537 /* Build configuration list for PBXNativeTarget "SwarmTest" */;
@@ -496,7 +423,6 @@
 			targets = (
 				4ED655E2170F7867005FEE56 /* Swarm */,
 				4ED655FA170F7867005FEE56 /* SwarmTests */,
-				4E0258981715122700C4AEC0 /* swarmd */,
 				4EB2E18F1722E9F800667537 /* SwarmTest */,
 			);
 		};
@@ -534,6 +460,8 @@
 				4EB2E1971722E9F800667537 /* InfoPlist.strings in Resources */,
 				4EB2E19D1722E9F800667537 /* Credits.rtf in Resources */,
 				4EB2E1A31722E9F800667537 /* MainMenu.xib in Resources */,
+				4EB2E1AF1723805B00667537 /* JVectorClock.framework in Resources */,
+				4EB2E1AE1723804D00667537 /* Swarm.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,14 +500,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4E0258951715122700C4AEC0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E02589E1715122700C4AEC0 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4EB2E18C1722E9F800667537 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -616,11 +536,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4E0258A71715123D00C4AEC0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4ED655E2170F7867005FEE56 /* Swarm */;
-			targetProxy = 4E0258A61715123D00C4AEC0 /* PBXContainerItemProxy */;
-		};
 		4EC012AD1719FF0000F65581 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JVectorClock;
@@ -677,26 +592,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4E0258A31715122700C4AEC0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "swarmd/swarmd-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		4E0258A41715122700C4AEC0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "swarmd/swarmd-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		4EB2E1A41722E9F800667537 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -706,6 +601,7 @@
 				GCC_PREFIX_HEADER = "SwarmTest/SwarmTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "SwarmTest/SwarmTest-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Resources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -721,6 +617,7 @@
 				GCC_PREFIX_HEADER = "SwarmTest/SwarmTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "SwarmTest/SwarmTest-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Resources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -798,6 +695,7 @@
 				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
@@ -816,6 +714,7 @@
 				GCC_PREFIX_HEADER = "Swarm/Swarm-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/Vendor/JVectorClock\"";
 				INFOPLIST_FILE = "Swarm/Swarm-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
@@ -851,15 +750,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E0258A51715122700C4AEC0 /* Build configuration list for PBXNativeTarget "swarmd" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4E0258A31715122700C4AEC0 /* Debug */,
-				4E0258A41715122700C4AEC0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4EB2E1A81722E9F800667537 /* Build configuration list for PBXNativeTarget "SwarmTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -15,11 +15,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     __block NSMutableArray* hosts = [NSMutableArray array];
-//    [Criteria addOption:@[@"c", @"connect"] callback:^(NSString* value) {
-//        if([value rangeOfString:@"."].location != NSNotFound) // Really bad validation
-//            [hosts addObject:value];
-//    }];
-//    [Criteria run];
     
     HATMessageHistorySource* historyWriter = [[HATMessageHistorySource alloc] init];
     DPSNode* root = [DPSNode nodeWithID:1 historyDataSource:historyWriter];
