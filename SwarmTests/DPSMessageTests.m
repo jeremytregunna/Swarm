@@ -7,9 +7,9 @@
 //
 
 #import "DPSMessageTests.h"
-#import "DPSMessage.h"
+#import "SwarmMessage.h"
 
-@interface DPSMessage (PrivateMethods)
+@interface SwarmMessage (PrivateMethods)
 @property (nonatomic, readwrite, strong) NSUUID* messageID;
 @property (nonatomic, readwrite, strong) NSDate* date;
 @end
@@ -34,9 +34,9 @@
     };
 }
 
-- (DPSMessage*)messageFromSample
+- (SwarmMessage*)messageFromSample
 {
-    DPSMessage* msg = [DPSMessage messageWithPurpose:[sample[@"purpose"] charValue] from:[sample[@"sender"] unsignedIntValue] to:[sample[@"receiver"] unsignedIntValue] withPayload:sample[@"payload"]];
+    SwarmMessage* msg = [SwarmMessage messageWithPurpose:[sample[@"purpose"] charValue] from:[sample[@"sender"] unsignedIntValue] to:[sample[@"receiver"] unsignedIntValue] withPayload:sample[@"payload"]];
     msg.messageID = sample[@"messageID"];
     msg.date = sample[@"date"];
     return msg;
@@ -44,7 +44,7 @@
 
 - (void)testMessageFromSampleDictionary
 {
-    DPSMessage* msg = [DPSMessage messageWithDictionary:sample];
+    SwarmMessage* msg = [SwarmMessage messageWithDictionary:sample];
     STAssertNotNil(msg, @"DPSMessage must not be nil");
     STAssertEqualObjects(msg.messageID, sample[@"messageID"], @"Message ID match");
     STAssertEquals(msg.purpose, [sample[@"purpose"] charValue], @"Message purpose match");
@@ -55,43 +55,43 @@
 
 - (void)testMessageID
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     STAssertEqualObjects(msg.messageID, sample[@"messageID"], @"Message ID differs");
 }
 
 - (void)testPurpose
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     STAssertEquals(msg.purpose, [sample[@"purpose"] charValue], @"Purpose differs");
 }
 
 - (void)testSender
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     STAssertEquals(msg.sender, [sample[@"sender"] unsignedIntValue], @"Sender differs");
 }
 
 - (void)testReceiver
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     STAssertEquals(msg.receiver, [sample[@"receiver"] unsignedIntValue], @"Receiver differs");
 }
 
 - (void)testDate
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     STAssertEquals([msg.date timeIntervalSince1970], [sample[@"date"] timeIntervalSince1970], @"Date differs");
 }
 
 - (void)testPayload
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     STAssertEqualObjects(msg.payload, sample[@"payload"], @"Payload differs");
 }
 
 - (void)testDictionaryFromFields
 {
-    DPSMessage* msg = [self messageFromSample];
+    SwarmMessage* msg = [self messageFromSample];
     NSDictionary* fields = [msg dictionaryFromFields];
 
     STAssertEqualObjects(fields, sample, @"Fields differ");

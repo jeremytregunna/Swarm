@@ -7,12 +7,12 @@
 //
 
 #import "DPSHistoryItemTests.h"
-#import "DPSHistoryItem.h"
+#import "SwarmHistoryItem.h"
 
 @implementation DPSHistoryItemTests
 {
     NSUUID* uuid;
-    DPSHistoryItem* historyItem;
+    SwarmHistoryItem* historyItem;
     NSTimeInterval currentTimestamp;
 }
 
@@ -21,7 +21,7 @@
     [super setUp];
 
     uuid = [[NSUUID alloc] initWithUUIDString:@"68753A44-4D6F-1226-9C60-0050E4C00067"];
-    historyItem = [DPSHistoryItem historyItemWithMessageID:uuid];
+    historyItem = [SwarmHistoryItem historyItemWithMessageID:uuid];
     currentTimestamp = [[NSDate date] timeIntervalSince1970];
 }
 

@@ -17,10 +17,11 @@
     __block NSMutableArray* hosts = [NSMutableArray array];
     
     HATMessageHistorySource* historyWriter = [[HATMessageHistorySource alloc] init];
-    DPSNode* root = [DPSNode nodeWithID:1 historyDataSource:historyWriter];
-    [root listen];
-    
-    [root connectToNodes:hosts];
+    SwarmNode* root = [SwarmNode nodeWithID:1];
+    SwarmCoordinator* coordinator = [[SwarmCoordinator alloc] initWithNode:root historyDataSource:historyWriter];
+    [coordinator listen];
+
+    [coordinator connectToNodes:hosts];
 }
 
 @end

@@ -1,18 +1,18 @@
 //
-//  DPSHistoryItem.m
+//  SwarmHistoryItem.m
 //  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-06.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "DPSHistoryItem.h"
+#import "SwarmHistoryItem.h"
 
-@interface DPSHistoryItem ()
+@interface SwarmHistoryItem ()
 - (instancetype)initWithMessageID:(NSUUID*)messageID;
 @end
 
-@implementation DPSHistoryItem
+@implementation SwarmHistoryItem
 
 + (instancetype)historyItemWithMessageID:(NSUUID*)messageID
 {

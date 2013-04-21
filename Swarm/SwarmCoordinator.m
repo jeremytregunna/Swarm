@@ -1,49 +1,50 @@
 //
-//  DPSNode.m
+//  SwarmCoordinator.m
 //  Swarm
 //
-//  Created by Jeremy Tregunna on 2013-04-05.
+//  Created by Jeremy Tregunna on 2013-04-21.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "DPSNode.h"
-#import "DPSMessage.h"
-#import "DPSHistoryItem.h"
+#import "SwarmCoordinator.h"
+#import "SwarmNode.h"
+#import "SwarmMessage.h"
+#import "SwarmBonjourServer.h"
+#import "SwarmHistoryItem.h"
 
 // Time in seconds
-static uint64_t DPSNodeHeartbeatFrequency       = 300 * NSEC_PER_SEC;
-static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
+static uint64_t SwarmNodeHeartbeatFrequency       = 300 * NSEC_PER_SEC;
+static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
-@interface DPSNode () <NSNetServiceDelegate>
+@interface SwarmCoordinator ()
 @property (readwrite, getter = isRunning) BOOL running;
 @property (nonatomic, strong) GCDAsyncSocket* listenSocket;
-
-- (instancetype)initWithNodeID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource;
 
 - (void)sendHeartbeats;
 @end
 
-@implementation DPSNode
+@implementation SwarmCoordinator
 {
     dispatch_queue_t _socketQueue;
     NSMutableArray* _connectedSockets;
     NSMutableDictionary* _leafSet;
     dispatch_queue_t _timerQueue;
     dispatch_source_t _timer;
-    NSNetService* _netService;
+
+    SwarmBonjourServer* _bonjourServer;
 }
 
-+ (instancetype)nodeWithID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource
+- (instancetype)initWithNode:(SwarmNode*)node
 {
-    return [[self alloc] initWithNodeID:nodeID historyDataSource:historyDataSource];
+    return [self initWithNode:node historyDataSource:nil];
 }
 
-- (instancetype)initWithNodeID:(uint32_t)nodeID historyDataSource:(id<DPSNodeHistoryDataSource>)historyDataSource
+- (instancetype)initWithNode:(SwarmNode*)node historyDataSource:(id<SwarmHistoryDataSource>)historyDataSource
 {
     if((self = [super init]))
     {
-        _nodeID = nodeID;
-        _historyDataSource = historyDataSource;
+        _me = node;
+        self.historyDataSource = historyDataSource;
         _socketQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         _listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
         _connectedSockets = [[NSMutableArray alloc] initWithCapacity:1];
@@ -54,7 +55,7 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, _timerQueue);
         if(_timer)
         {
-            dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), DPSNodeHeartbeatFrequency, DPSNodeHeartbeatFrequencyLeeway);
+            dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), SwarmNodeHeartbeatFrequency, SwarmNodeHeartbeatFrequencyLeeway);
             dispatch_source_set_event_handler(_timer, ^{
                 [self sendHeartbeats];
             });
@@ -70,6 +71,8 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     _timer = nil;
 }
 
+#pragma mark - Listening
+
 - (void)listen
 {
     [self listenOnPort:SWARM_PORT];
@@ -84,9 +87,11 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         return;
     }
 
-    [self setupBonjourForSocket:_listenSocket];
+    if(_bonjourServer == nil)
+        _bonjourServer = [[SwarmBonjourServer alloc] init];
+    [_bonjourServer advertiseForSocket:_listenSocket];
 
-    JDLog(@"Starting server on port %hu", [_listenSocket localPort]);
+    JDLog(@"Starting server on port %hu", _listenSocket.localPort);
     self.running = YES;
 }
 
@@ -98,8 +103,9 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     {
         [_connectedSockets makeObjectsPerformSelector:@selector(disconnect)];
     }
-
 }
+
+#pragma mark - Connecting
 
 - (void)connectToNodes:(NSArray*)nodes
 {
@@ -113,7 +119,7 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
                 port = (uint16_t)[hostComponents[1] intValue];
             else
                 port = SWARM_PORT;
-
+            
             GCDAsyncSocket* asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
             NSError* error = nil;
             if(![asyncSocket connectToHost:hostName onPort:port withTimeout:SWARM_READ_TIMEOUT error:&error])
@@ -124,14 +130,6 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     }
 }
 
-- (void)setupBonjourForSocket:(GCDAsyncSocket*)socket
-{
-    int port = [socket localPort];
-    _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_swarm._tcp." name:@"" port:port];
-    _netService.delegate = self;
-    [_netService publish];
-}
-
 #pragma mark - Sending
 
 - (void)sendHeartbeats
@@ -139,9 +137,7 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     for(NSNumber* nodeID in _leafSet)
     {
         GCDAsyncSocket* sock = _leafSet[nodeID];
-        NSDictionary* options = @{
-            @"sender": @(self.nodeID)
-        };
+        NSDictionary* options = @{ @"sender": @(self.me.nodeID) };
         NSError* error = nil;
         NSData* data = [NSJSONSerialization dataWithJSONObject:options options:0 error:&error];
         if(error != nil)
@@ -149,13 +145,13 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
             JDLog(@"JSON encoding error when sending: %@", error);
             return;
         }
-
+        
         if([sock isConnected])
-            [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposeHeartbeat];
+            [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposeHeartbeat];
     }
 }
 
-- (BOOL)sendMessage:(DPSMessage*)msg
+- (BOOL)sendMessage:(SwarmMessage*)msg
 {
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
     NSError* error = nil;
@@ -165,19 +161,19 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         JDLog(@"JSON encoding error when sending: %@", error);
         return NO;
     }
-
-    [_listenSocket writeData:data withTimeout:SWARM_READ_TIMEOUT tag:DPSMessagePurposePayload];
-
+    
+    [_listenSocket writeData:data withTimeout:SWARM_READ_TIMEOUT tag:SwarmMessagePurposePayload];
+    
     for(GCDAsyncSocket* sock in _connectedSockets)
     {
         if(![sock isConnected])
-            [sock writeData:data withTimeout:SWARM_READ_TIMEOUT tag:DPSMessagePurposePayload];
+            [sock writeData:data withTimeout:SWARM_READ_TIMEOUT tag:SwarmMessagePurposePayload];
     }
-
+    
     return YES;
 }
 
-- (BOOL)sendMessage:(DPSMessage*)msg toNode:(uint32)nodeID
+- (BOOL)sendMessage:(SwarmMessage*)msg toNode:(uint32)nodeID
 {
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
     NSError* error = nil;
@@ -187,22 +183,22 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         JDLog(@"JSON encoding error when sending: %@", error);
         return NO;
     }
-
+    
     GCDAsyncSocket* sock = _leafSet[@(nodeID)];
     if(sock != nil && [sock isConnected])
     {
-        [sock writeData:data withTimeout:20.0f tag:DPSMessagePurposePayload];
+        [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposePayload];
         return YES;
     }
-
+    
     return NO;
 }
 
 - (void)forwardMessageWithOptions:(NSDictionary*)options
 {
     NSMutableDictionary* forwardOptions = [options mutableCopy];
-    forwardOptions[@"forwardedBy"] = @(self.nodeID);
-    DPSMessage* msg = [DPSMessage messageWithDictionary:forwardOptions];
+    forwardOptions[@"forwardedBy"] = @(self.me.nodeID);
+    SwarmMessage* msg = [SwarmMessage messageWithDictionary:forwardOptions];
     [self sendMessage:msg];
 }
 
@@ -219,8 +215,8 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     uint16_t port = [newSocket connectedPort];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        if([self.delegate respondsToSelector:@selector(didAcceptNewClientForNode:)])
-            [self.delegate didAcceptNewClientForNode:self];
+        if([self.delegate respondsToSelector:@selector(didAcceptNewConnectionToSwarmCoordinator:)])
+            [self.delegate didAcceptNewConnectionToSwarmCoordinator:self];
         JDLog(@"Accepted client %@:%hu", host, port);
     });
 
@@ -229,7 +225,7 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 - (void)socket:(GCDAsyncSocket*)sock didReadData:(NSData*)data withTag:(long)tag
 {
-    if([data length] == 2)
+    if([data length] <= 2)
         return;
 
     NSError* error = nil;
@@ -240,7 +236,7 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         return;
     }
 
-    if(tag == DPSMessagePurposeHeartbeat)
+    if(tag == SwarmMessagePurposeHeartbeat)
     {
         @synchronized(_leafSet)
         {
@@ -252,13 +248,13 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     NSUUID* messageID = options[@"messageID"];
     if(messageID && [self.historyDataSource historyItemForMessageID:messageID] == nil)
     {
-        DPSHistoryItem* historyItem = [DPSHistoryItem historyItemWithMessageID:messageID];
+        SwarmHistoryItem* historyItem = [SwarmHistoryItem historyItemWithMessageID:messageID];
         [self.historyDataSource storeHistoryItem:historyItem];
-
-        if([options[@"receiver"] isEqual:@(self.nodeID)])
+        
+        if([options[@"receiver"] isEqual:@(self.me.nodeID)])
         {
-            DPSMessage* msg = [DPSMessage messageWithDictionary:options];
-            [self.delegate node:self didReceiveMessage:msg];
+            SwarmMessage* msg = [SwarmMessage messageWithDictionary:options];
+            [self.delegate swarmCoordinator:self didReceiveMessage:msg];
         }
 
         [self forwardMessageWithOptions:options];
@@ -286,28 +282,17 @@ static uint64_t DPSNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            if([self.delegate respondsToSelector:@selector(didDisconnectClientFromNode:withError:)])
-                [self.delegate didDisconnectClientFromNode:self withError:error];
+            if([self.delegate respondsToSelector:@selector(didDisconnectConnectionFromSwarmCoordinator:withError:)])
+                [self.delegate didDisconnectConnectionFromSwarmCoordinator:self withError:error];
         });
     }
+
     if([_listenSocket isConnected] == NO && [_connectedSockets count] == 0)
     {
         self.running = NO;
-        if([self.delegate respondsToSelector:@selector(nodeDidStopRunning:)])
-            [self.delegate nodeDidStopRunning:self];
+        if([self.delegate respondsToSelector:@selector(swarmCoordinatorDidStopRunning:)])
+            [self.delegate swarmCoordinatorDidStopRunning:self];
     }
-}
-
-#pragma mark - Net service delegate
-
-- (void)netServiceDidPublish:(NSNetService*)ns
-{
-	JDLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port(%i)", [ns domain], [ns type], [ns name], (int)[ns port]);
-}
-
-- (void)netService:(NSNetService*)ns didNotPublish:(NSDictionary*)errorDict
-{
-	JDLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@) - %@", [ns domain], [ns type], [ns name], errorDict);
 }
 
 @end

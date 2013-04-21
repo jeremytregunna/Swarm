@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DPSNode.h"
+#import "SwarmHistoryItem.h"
 
-@interface HATMessageHistorySource : NSObject <DPSNodeHistoryDataSource>
+@interface HATMessageHistorySource : NSObject <SwarmHistoryDataSource>
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "DPSHistoryItem.h"
-#import "DPSMessage.h"
-#import "DPSNode.h"
-#import <JVectorClock/JVectorClock.h>
+#import "SwarmHistoryItem.h"
+#import "SwarmMessage.h"
+#import "SwarmNode.h"
+#import "SwarmCoordinator.h"

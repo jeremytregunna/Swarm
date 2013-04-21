@@ -1,40 +1,40 @@
 //
-//  DPSMessage.m
+//  SwarmMessage.m
 //  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-05.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "DPSMessage.h"
+#import "SwarmMessage.h"
 
-@interface DPSMessage ()
+@interface SwarmMessage ()
 @property (nonatomic, readwrite, strong) NSUUID* messageID;
 @property (nonatomic, readwrite, strong) NSDate* date;
 
-- (instancetype)initWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
+- (instancetype)initWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
 @end
 
-@implementation DPSMessage
+@implementation SwarmMessage
 
-+ (instancetype)messageWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
++ (instancetype)messageWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
 {
     return [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
 }
 
 + (instancetype)messageWithDictionary:(NSDictionary*)dictionary
 {
-    DPSMessagePurpose purpose = [dictionary[@"purpose"] charValue];
+    SwarmMessagePurpose purpose = [dictionary[@"purpose"] charValue];
     uint32_t sender = [dictionary[@"sender"] unsignedIntValue];
     uint32_t receiver = [dictionary[@"receiver"] unsignedIntValue];
     NSDictionary* payload = dictionary[@"payload"];
-    DPSMessage* msg = [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
+    SwarmMessage* msg = [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
     msg->_messageID = dictionary[@"messageID"];
 
     return msg;
 }
 
-- (instancetype)initWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
+- (instancetype)initWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
 {
     if((self = [super init]))
     {
@@ -58,7 +58,7 @@
     return result;
 }
 
-- (BOOL)isEqual:(DPSMessage*)other
+- (BOOL)isEqual:(SwarmMessage*)other
 {
     return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_date isEqualToDate:other.date] && [_payload isEqualToDictionary:other.payload];
 }

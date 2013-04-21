@@ -7,8 +7,8 @@
 //
 
 #import "DPSNodeTests.h"
-#import "DPSNode.h"
-#import "DPSHistoryItem.h"
+#import "SwarmNode.h"
+#import "SwarmHistoryItem.h"
 
 @interface HistoryWriter : NSObject <DPSNodeHistoryDataSource>
 @end
@@ -24,14 +24,14 @@
     return self;
 }
 
-- (void)storeHistoryItem:(DPSHistoryItem*)historyItem
+- (void)storeHistoryItem:(SwarmHistoryItem*)historyItem
 {
     [_history addObject:historyItem];
 }
 
-- (DPSHistoryItem*)historyItemForMessageID:(NSUUID*)messageID
+- (SwarmHistoryItem*)historyItemForMessageID:(NSUUID*)messageID
 {
-    NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(DPSHistoryItem* historyItem, NSDictionary* bindings) {
+    NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(SwarmHistoryItem* historyItem, NSDictionary* bindings) {
         return [historyItem.messageID isEqual:messageID];
     }];
     NSArray* filteredArray = [_history filteredArrayUsingPredicate:predicate];
@@ -40,13 +40,13 @@
 
 @end
 
-@interface DPSNode (PrivateMethods)
+@interface SwarmNode (PrivateMethods)
 @property (nonatomic, strong) GCDAsyncSocket* listenSocket;
 @end
 
 @implementation DPSNodeTests
 {
-    DPSNode* rootNode;
+    SwarmNode* rootNode;
     HistoryWriter* historyWriter;
 }
 
@@ -55,7 +55,7 @@
     [super setUp];
 
     historyWriter = [[HistoryWriter alloc] init];
-    rootNode = [DPSNode nodeWithID:1 historyDataSource:historyWriter];
+    rootNode = [SwarmNode nodeWithID:1 historyDataSource:historyWriter];
 }
 
 - (void)testRootExists

@@ -7,8 +7,8 @@
 //
 
 #import "HATMessageHistorySource.h"
-#import "DPSMessage.h"
-#import "DPSHistoryItem.h"
+#import "SwarmMessage.h"
+#import "SwarmHistoryItem.h"
 
 @implementation HATMessageHistorySource
 {
@@ -22,14 +22,14 @@
     return self;
 }
 
-- (void)storeHistoryItem:(DPSHistoryItem*)historyItem
+- (void)storeHistoryItem:(SwarmHistoryItem*)historyItem
 {
     [_history addObject:historyItem];
 }
 
-- (DPSHistoryItem*)historyItemForMessageID:(NSUUID*)messageID
+- (SwarmHistoryItem*)historyItemForMessageID:(NSUUID*)messageID
 {
-    NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(DPSHistoryItem* historyItem, NSDictionary* bindings) {
+    NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(SwarmHistoryItem* historyItem, NSDictionary* bindings) {
         return [historyItem.messageID isEqual:messageID];
     }];
     NSArray* filteredArray = [_history filteredArrayUsingPredicate:predicate];

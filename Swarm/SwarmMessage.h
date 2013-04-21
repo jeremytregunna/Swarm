@@ -1,5 +1,5 @@
 //
-//  DPSMessage.h
+//  SwarmMessage.h
 //  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-05.
@@ -8,27 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(char, DPSMessagePurpose)
+typedef NS_ENUM(char, SwarmMessagePurpose)
 {
-    DPSMessagePurposeNone = 0,
-    DPSMessagePurposeHeartbeat,
-    DPSMessagePurposePayload,
-    DPSMessagePurposeReplay,
+    SwarmMessagePurposeNone = 0,
+    SwarmMessagePurposeHeartbeat,
+    SwarmMessagePurposePayload,
+    SwarmMessagePurposeReplay,
 };
 
-@protocol DPSMessageable <NSObject>
+@protocol SwarmMessageable <NSObject>
 - (NSDictionary*)dictionaryFromFields;
 @end
 
-@interface DPSMessage : NSObject <NSCopying, DPSMessageable>
+@interface SwarmMessage : NSObject <NSCopying, SwarmMessageable>
 @property (nonatomic, readonly, strong) NSUUID* messageID;
-@property (nonatomic, readonly) DPSMessagePurpose purpose;
+@property (nonatomic, readonly) SwarmMessagePurpose purpose;
 @property (nonatomic, readonly) uint32_t sender, receiver;
 @property (nonatomic) uint32_t forwardedBy;
 @property (nonatomic, readonly, strong) NSDate* date;
 @property (nonatomic, readonly, copy) NSDictionary* payload;
 
-+ (instancetype)messageWithPurpose:(DPSMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
++ (instancetype)messageWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
 + (instancetype)messageWithDictionary:(NSDictionary*)dictionary;
 - (NSDictionary*)dictionaryFromFields;
 @end
