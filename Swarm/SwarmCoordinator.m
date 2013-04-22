@@ -12,6 +12,7 @@
 #import "SwarmHistoryItem.h"
 #import "SwarmBonjourServer.h"
 #import "SwarmBonjourClient.h"
+#import "MessagePack.h"
 
 // Time in seconds
 static uint64_t SwarmNodeHeartbeatFrequency       = 300 * NSEC_PER_SEC;
@@ -142,13 +143,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     {
         GCDAsyncSocket* sock = _leafSet[nodeID];
         NSDictionary* options = @{ @"sender": @(self.me.nodeID) };
-        NSError* error = nil;
-        NSData* data = [NSJSONSerialization dataWithJSONObject:options options:0 error:&error];
-        if(error != nil)
-        {
-            JDLog(@"JSON encoding error when sending: %@", error);
-            return;
-        }
+        NSData* data = [options messagePack];
         
         if([sock isConnected])
         {
@@ -161,43 +156,34 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 - (BOOL)sendMessage:(SwarmMessage*)msg
 {
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
-    NSError* error = nil;
-    NSData* data = [NSJSONSerialization dataWithJSONObject:fieldOptions options:0 error:&error];
-    if(error != nil)
-    {
-        JDLog(@"JSON encoding error when sending: %@", error);
-        return NO;
-    }
-    
+    NSData* data = [fieldOptions messagePack];
+
     [_listenSocket writeData:data withTimeout:SWARM_READ_TIMEOUT tag:SwarmMessagePurposePayload];
-    
+
     for(GCDAsyncSocket* sock in _connectedSockets)
     {
-        if(![sock isConnected])
+        if(sock != nil && [sock isConnected])
+        {
             [sock writeData:data withTimeout:SWARM_READ_TIMEOUT tag:SwarmMessagePurposePayload];
+            return YES;
+        }
     }
-    
-    return YES;
+
+    return NO;
 }
 
 - (BOOL)sendMessage:(SwarmMessage*)msg toNode:(uint32)nodeID
 {
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
-    NSError* error = nil;
-    NSData* data = [NSJSONSerialization dataWithJSONObject:fieldOptions options:0 error:&error];
-    if(error != nil)
-    {
-        JDLog(@"JSON encoding error when sending: %@", error);
-        return NO;
-    }
-    
+    NSData* data = [fieldOptions messagePack];
+
     GCDAsyncSocket* sock = _leafSet[@(nodeID)];
     if(sock != nil && [sock isConnected])
     {
         [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposePayload];
         return YES;
     }
-    
+
     return NO;
 }
 
@@ -235,20 +221,13 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     if([data length] <= 2)
         return;
 
-    NSError* error = nil;
-    NSDictionary* options = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if(error != nil)
-    {
-        JDLog(@"Invalid JSON, error: %@", error);
-        return;
-    }
+    NSDictionary* options = [data messagePackParse];
 
     if(tag == SwarmMessagePurposeHeartbeat)
     {
         @synchronized(_leafSet)
         {
             _leafSet[@([options[@"sender"] longLongValue])] = sock;
-            //            [_leafSet setObject:sock forKey:options[@"sender"]];
         }
         return;
     }
@@ -272,11 +251,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 - (NSTimeInterval)socket:(GCDAsyncSocket*)sock shouldTimeoutReadWithTag:(long)tag elapsed:(NSTimeInterval)elapsed bytesDone:(NSUInteger)length
 {
     if(elapsed <= SWARM_READ_TIMEOUT)
-    {
-        // TODO: Request update from socket, extend read timeout.
         return SWARM_READ_TIMEOUT_EXTENSION;
-    }
-
     return 0.0;
 }
 
