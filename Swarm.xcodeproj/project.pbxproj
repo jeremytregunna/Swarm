@@ -26,6 +26,39 @@
 		4EB2E1BB17244FC700667537 /* SwarmBonjourClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B917244FC700667537 /* SwarmBonjourClient.m */; };
 		4EB2E1BE1724632800667537 /* SwarmNodeIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1BC1724632800667537 /* SwarmNodeIDGenerator.h */; };
 		4EB2E1BF1724632800667537 /* SwarmNodeIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1BD1724632800667537 /* SwarmNodeIDGenerator.m */; };
+		4EB2E1E41724CE8A00667537 /* MessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1C11724CE8A00667537 /* MessagePack.h */; };
+		4EB2E1E51724CE8A00667537 /* MessagePackPacker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1C21724CE8A00667537 /* MessagePackPacker.h */; };
+		4EB2E1E61724CE8A00667537 /* MessagePackPacker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1C31724CE8A00667537 /* MessagePackPacker.m */; };
+		4EB2E1E71724CE8A00667537 /* MessagePackParser+Streaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1C41724CE8A00667537 /* MessagePackParser+Streaming.h */; };
+		4EB2E1E81724CE8A00667537 /* MessagePackParser+Streaming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1C51724CE8A00667537 /* MessagePackParser+Streaming.m */; };
+		4EB2E1E91724CE8A00667537 /* MessagePackParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1C61724CE8A00667537 /* MessagePackParser.h */; };
+		4EB2E1EA1724CE8A00667537 /* MessagePackParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1C71724CE8A00667537 /* MessagePackParser.m */; };
+		4EB2E1EB1724CE8A00667537 /* object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1CA1724CE8A00667537 /* object.h */; };
+		4EB2E1EC1724CE8A00667537 /* pack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1CB1724CE8A00667537 /* pack.h */; };
+		4EB2E1ED1724CE8A00667537 /* pack_define.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1CC1724CE8A00667537 /* pack_define.h */; };
+		4EB2E1EE1724CE8A00667537 /* pack_template.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1CD1724CE8A00667537 /* pack_template.h */; };
+		4EB2E1EF1724CE8A00667537 /* sbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1CE1724CE8A00667537 /* sbuffer.h */; };
+		4EB2E1F01724CE8A00667537 /* sysdep.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1CF1724CE8A00667537 /* sysdep.h */; };
+		4EB2E1F11724CE8A00667537 /* unpack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D01724CE8A00667537 /* unpack.h */; };
+		4EB2E1F21724CE8A00667537 /* unpack_define.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D11724CE8A00667537 /* unpack_define.h */; };
+		4EB2E1F31724CE8A00667537 /* unpack_template.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D21724CE8A00667537 /* unpack_template.h */; };
+		4EB2E1F41724CE8A00667537 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D31724CE8A00667537 /* version.h */; };
+		4EB2E1F51724CE8A00667537 /* vrefbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D41724CE8A00667537 /* vrefbuffer.h */; };
+		4EB2E1F61724CE8A00667537 /* zbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D51724CE8A00667537 /* zbuffer.h */; };
+		4EB2E1F71724CE8A00667537 /* zone.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D61724CE8A00667537 /* zone.h */; };
+		4EB2E1F81724CE8A00667537 /* msgpack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1D71724CE8A00667537 /* msgpack.h */; };
+		4EB2E1F91724CE8A00667537 /* objectc.c in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1D81724CE8A00667537 /* objectc.c */; };
+		4EB2E1FA1724CE8A00667537 /* unpack.c in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1D91724CE8A00667537 /* unpack.c */; };
+		4EB2E1FB1724CE8A00667537 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1DA1724CE8A00667537 /* version.c */; };
+		4EB2E1FC1724CE8A00667537 /* vrefbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1DB1724CE8A00667537 /* vrefbuffer.c */; };
+		4EB2E1FD1724CE8A00667537 /* zone.c in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1DC1724CE8A00667537 /* zone.c */; };
+		4EB2E1FE1724CE8A00667537 /* NSArray+MessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1DD1724CE8A00667537 /* NSArray+MessagePack.h */; };
+		4EB2E1FF1724CE8A00667537 /* NSArray+MessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1DE1724CE8A00667537 /* NSArray+MessagePack.m */; };
+		4EB2E2001724CE8A00667537 /* NSData+MessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1DF1724CE8A00667537 /* NSData+MessagePack.h */; };
+		4EB2E2011724CE8A00667537 /* NSData+MessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1E01724CE8A00667537 /* NSData+MessagePack.m */; };
+		4EB2E2021724CE8A00667537 /* NSDictionary+MessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1E11724CE8A00667537 /* NSDictionary+MessagePack.h */; };
+		4EB2E2031724CE8A00667537 /* NSDictionary+MessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1E21724CE8A00667537 /* NSDictionary+MessagePack.m */; };
+		4EB2E2041724CE8A00667537 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4EB2E1E31724CE8A00667537 /* readme.md */; };
 		4EC012AE1719FF1600F65581 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4ED655E7170F7867005FEE56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E6170F7867005FEE56 /* Cocoa.framework */; };
 		4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655EF170F7867005FEE56 /* InfoPlist.strings */; };
@@ -108,6 +141,39 @@
 		4EB2E1B917244FC700667537 /* SwarmBonjourClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwarmBonjourClient.m; sourceTree = "<group>"; };
 		4EB2E1BC1724632800667537 /* SwarmNodeIDGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwarmNodeIDGenerator.h; sourceTree = "<group>"; };
 		4EB2E1BD1724632800667537 /* SwarmNodeIDGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwarmNodeIDGenerator.m; sourceTree = "<group>"; };
+		4EB2E1C11724CE8A00667537 /* MessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePack.h; sourceTree = "<group>"; };
+		4EB2E1C21724CE8A00667537 /* MessagePackPacker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePackPacker.h; sourceTree = "<group>"; };
+		4EB2E1C31724CE8A00667537 /* MessagePackPacker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePackPacker.m; sourceTree = "<group>"; };
+		4EB2E1C41724CE8A00667537 /* MessagePackParser+Streaming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessagePackParser+Streaming.h"; sourceTree = "<group>"; };
+		4EB2E1C51724CE8A00667537 /* MessagePackParser+Streaming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessagePackParser+Streaming.m"; sourceTree = "<group>"; };
+		4EB2E1C61724CE8A00667537 /* MessagePackParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePackParser.h; sourceTree = "<group>"; };
+		4EB2E1C71724CE8A00667537 /* MessagePackParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePackParser.m; sourceTree = "<group>"; };
+		4EB2E1CA1724CE8A00667537 /* object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
+		4EB2E1CB1724CE8A00667537 /* pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pack.h; sourceTree = "<group>"; };
+		4EB2E1CC1724CE8A00667537 /* pack_define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pack_define.h; sourceTree = "<group>"; };
+		4EB2E1CD1724CE8A00667537 /* pack_template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pack_template.h; sourceTree = "<group>"; };
+		4EB2E1CE1724CE8A00667537 /* sbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbuffer.h; sourceTree = "<group>"; };
+		4EB2E1CF1724CE8A00667537 /* sysdep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sysdep.h; sourceTree = "<group>"; };
+		4EB2E1D01724CE8A00667537 /* unpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack.h; sourceTree = "<group>"; };
+		4EB2E1D11724CE8A00667537 /* unpack_define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack_define.h; sourceTree = "<group>"; };
+		4EB2E1D21724CE8A00667537 /* unpack_template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack_template.h; sourceTree = "<group>"; };
+		4EB2E1D31724CE8A00667537 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		4EB2E1D41724CE8A00667537 /* vrefbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vrefbuffer.h; sourceTree = "<group>"; };
+		4EB2E1D51724CE8A00667537 /* zbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbuffer.h; sourceTree = "<group>"; };
+		4EB2E1D61724CE8A00667537 /* zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zone.h; sourceTree = "<group>"; };
+		4EB2E1D71724CE8A00667537 /* msgpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgpack.h; sourceTree = "<group>"; };
+		4EB2E1D81724CE8A00667537 /* objectc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = objectc.c; sourceTree = "<group>"; };
+		4EB2E1D91724CE8A00667537 /* unpack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unpack.c; sourceTree = "<group>"; };
+		4EB2E1DA1724CE8A00667537 /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		4EB2E1DB1724CE8A00667537 /* vrefbuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vrefbuffer.c; sourceTree = "<group>"; };
+		4EB2E1DC1724CE8A00667537 /* zone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zone.c; sourceTree = "<group>"; };
+		4EB2E1DD1724CE8A00667537 /* NSArray+MessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MessagePack.h"; sourceTree = "<group>"; };
+		4EB2E1DE1724CE8A00667537 /* NSArray+MessagePack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MessagePack.m"; sourceTree = "<group>"; };
+		4EB2E1DF1724CE8A00667537 /* NSData+MessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MessagePack.h"; sourceTree = "<group>"; };
+		4EB2E1E01724CE8A00667537 /* NSData+MessagePack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MessagePack.m"; sourceTree = "<group>"; };
+		4EB2E1E11724CE8A00667537 /* NSDictionary+MessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MessagePack.h"; sourceTree = "<group>"; };
+		4EB2E1E21724CE8A00667537 /* NSDictionary+MessagePack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MessagePack.m"; sourceTree = "<group>"; };
+		4EB2E1E31724CE8A00667537 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JVectorClock.xcodeproj; path = JVectorClock/JVectorClock.xcodeproj; sourceTree = "<group>"; };
 		4ED655E3170F7867005FEE56 /* Swarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED655E6170F7867005FEE56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -198,6 +264,62 @@
 				4EB2E19B1722E9F800667537 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EB2E1C01724CE8A00667537 /* msgpack */ = {
+			isa = PBXGroup;
+			children = (
+				4EB2E1C11724CE8A00667537 /* MessagePack.h */,
+				4EB2E1C21724CE8A00667537 /* MessagePackPacker.h */,
+				4EB2E1C31724CE8A00667537 /* MessagePackPacker.m */,
+				4EB2E1C41724CE8A00667537 /* MessagePackParser+Streaming.h */,
+				4EB2E1C51724CE8A00667537 /* MessagePackParser+Streaming.m */,
+				4EB2E1C61724CE8A00667537 /* MessagePackParser.h */,
+				4EB2E1C71724CE8A00667537 /* MessagePackParser.m */,
+				4EB2E1C81724CE8A00667537 /* msgpack_src */,
+				4EB2E1DD1724CE8A00667537 /* NSArray+MessagePack.h */,
+				4EB2E1DE1724CE8A00667537 /* NSArray+MessagePack.m */,
+				4EB2E1DF1724CE8A00667537 /* NSData+MessagePack.h */,
+				4EB2E1E01724CE8A00667537 /* NSData+MessagePack.m */,
+				4EB2E1E11724CE8A00667537 /* NSDictionary+MessagePack.h */,
+				4EB2E1E21724CE8A00667537 /* NSDictionary+MessagePack.m */,
+				4EB2E1E31724CE8A00667537 /* readme.md */,
+			);
+			path = msgpack;
+			sourceTree = "<group>";
+		};
+		4EB2E1C81724CE8A00667537 /* msgpack_src */ = {
+			isa = PBXGroup;
+			children = (
+				4EB2E1C91724CE8A00667537 /* msgpack */,
+				4EB2E1D71724CE8A00667537 /* msgpack.h */,
+				4EB2E1D81724CE8A00667537 /* objectc.c */,
+				4EB2E1D91724CE8A00667537 /* unpack.c */,
+				4EB2E1DA1724CE8A00667537 /* version.c */,
+				4EB2E1DB1724CE8A00667537 /* vrefbuffer.c */,
+				4EB2E1DC1724CE8A00667537 /* zone.c */,
+			);
+			path = msgpack_src;
+			sourceTree = "<group>";
+		};
+		4EB2E1C91724CE8A00667537 /* msgpack */ = {
+			isa = PBXGroup;
+			children = (
+				4EB2E1CA1724CE8A00667537 /* object.h */,
+				4EB2E1CB1724CE8A00667537 /* pack.h */,
+				4EB2E1CC1724CE8A00667537 /* pack_define.h */,
+				4EB2E1CD1724CE8A00667537 /* pack_template.h */,
+				4EB2E1CE1724CE8A00667537 /* sbuffer.h */,
+				4EB2E1CF1724CE8A00667537 /* sysdep.h */,
+				4EB2E1D01724CE8A00667537 /* unpack.h */,
+				4EB2E1D11724CE8A00667537 /* unpack_define.h */,
+				4EB2E1D21724CE8A00667537 /* unpack_template.h */,
+				4EB2E1D31724CE8A00667537 /* version.h */,
+				4EB2E1D41724CE8A00667537 /* vrefbuffer.h */,
+				4EB2E1D51724CE8A00667537 /* zbuffer.h */,
+				4EB2E1D61724CE8A00667537 /* zone.h */,
+			);
+			path = msgpack;
 			sourceTree = "<group>";
 		};
 		4EC012A11719FEF500F65581 /* Products */ = {
@@ -313,6 +435,7 @@
 		4ED6561D170F7925005FEE56 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4EB2E1C01724CE8A00667537 /* msgpack */,
 				4EC012A01719FEF500F65581 /* JVectorClock.xcodeproj */,
 				4ED6561E170F7925005FEE56 /* GCDAsyncSocket */,
 			);
@@ -346,6 +469,27 @@
 				4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */,
 				4EB2E1BA17244FC700667537 /* SwarmBonjourClient.h in Headers */,
 				4EB2E1BE1724632800667537 /* SwarmNodeIDGenerator.h in Headers */,
+				4EB2E1E41724CE8A00667537 /* MessagePack.h in Headers */,
+				4EB2E1E51724CE8A00667537 /* MessagePackPacker.h in Headers */,
+				4EB2E1E71724CE8A00667537 /* MessagePackParser+Streaming.h in Headers */,
+				4EB2E1E91724CE8A00667537 /* MessagePackParser.h in Headers */,
+				4EB2E1EB1724CE8A00667537 /* object.h in Headers */,
+				4EB2E1EC1724CE8A00667537 /* pack.h in Headers */,
+				4EB2E1ED1724CE8A00667537 /* pack_define.h in Headers */,
+				4EB2E1EE1724CE8A00667537 /* pack_template.h in Headers */,
+				4EB2E1EF1724CE8A00667537 /* sbuffer.h in Headers */,
+				4EB2E1F01724CE8A00667537 /* sysdep.h in Headers */,
+				4EB2E1F11724CE8A00667537 /* unpack.h in Headers */,
+				4EB2E1F21724CE8A00667537 /* unpack_define.h in Headers */,
+				4EB2E1F31724CE8A00667537 /* unpack_template.h in Headers */,
+				4EB2E1F41724CE8A00667537 /* version.h in Headers */,
+				4EB2E1F51724CE8A00667537 /* vrefbuffer.h in Headers */,
+				4EB2E1F61724CE8A00667537 /* zbuffer.h in Headers */,
+				4EB2E1F71724CE8A00667537 /* zone.h in Headers */,
+				4EB2E1F81724CE8A00667537 /* msgpack.h in Headers */,
+				4EB2E1FE1724CE8A00667537 /* NSArray+MessagePack.h in Headers */,
+				4EB2E2001724CE8A00667537 /* NSData+MessagePack.h in Headers */,
+				4EB2E2021724CE8A00667537 /* NSDictionary+MessagePack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED655F1170F7867005FEE56 /* InfoPlist.strings in Resources */,
+				4EB2E2041724CE8A00667537 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +681,17 @@
 				4EB2E1B71724338000667537 /* SwarmCoordinator.m in Sources */,
 				4EB2E1BB17244FC700667537 /* SwarmBonjourClient.m in Sources */,
 				4EB2E1BF1724632800667537 /* SwarmNodeIDGenerator.m in Sources */,
+				4EB2E1E61724CE8A00667537 /* MessagePackPacker.m in Sources */,
+				4EB2E1E81724CE8A00667537 /* MessagePackParser+Streaming.m in Sources */,
+				4EB2E1EA1724CE8A00667537 /* MessagePackParser.m in Sources */,
+				4EB2E1F91724CE8A00667537 /* objectc.c in Sources */,
+				4EB2E1FA1724CE8A00667537 /* unpack.c in Sources */,
+				4EB2E1FB1724CE8A00667537 /* version.c in Sources */,
+				4EB2E1FC1724CE8A00667537 /* vrefbuffer.c in Sources */,
+				4EB2E1FD1724CE8A00667537 /* zone.c in Sources */,
+				4EB2E1FF1724CE8A00667537 /* NSArray+MessagePack.m in Sources */,
+				4EB2E2011724CE8A00667537 /* NSData+MessagePack.m in Sources */,
+				4EB2E2031724CE8A00667537 /* NSDictionary+MessagePack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,3 +1,6 @@
 [submodule "Vendor/JVectorClock"]
 	path = Vendor/JVectorClock
 	url = git@github.com:jeremytregunna/JVectorClock.git
+[submodule "Vendor/msgpack"]
+	path = Vendor/msgpack
+	url = https://github.com/msgpack/msgpack-objectivec.git
