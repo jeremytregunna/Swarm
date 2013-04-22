@@ -15,9 +15,7 @@
 		4EB2E1A31722E9F800667537 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB2E1A11722E9F800667537 /* MainMenu.xib */; };
 		4EB2E1AB1722EA1B00667537 /* HATMessageHistorySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1AA1722EA1B00667537 /* HATMessageHistorySource.m */; };
 		4EB2E1AC1722EB0200667537 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
-		4EB2E1AD1722EB0700667537 /* JVectorClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4EB2E1AE1723804D00667537 /* Swarm.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
-		4EB2E1AF1723805B00667537 /* JVectorClock.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4EC012A71719FEF600F65581 /* JVectorClock.framework */; };
 		4EB2E1B21724316E00667537 /* SwarmBonjourServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B01724316E00667537 /* SwarmBonjourServer.h */; };
 		4EB2E1B31724316E00667537 /* SwarmBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B11724316E00667537 /* SwarmBonjourServer.m */; };
 		4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B41724338000667537 /* SwarmCoordinator.h */; };
@@ -212,7 +210,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EB2E1AD1722EB0700667537 /* JVectorClock.framework in Frameworks */,
 				4EB2E1AC1722EB0200667537 /* Swarm.framework in Frameworks */,
 				4EB2E1911722E9F800667537 /* Cocoa.framework in Frameworks */,
 			);
@@ -617,7 +614,6 @@
 				4EB2E1971722E9F800667537 /* InfoPlist.strings in Resources */,
 				4EB2E19D1722E9F800667537 /* Credits.rtf in Resources */,
 				4EB2E1A31722E9F800667537 /* MainMenu.xib in Resources */,
-				4EB2E1AF1723805B00667537 /* JVectorClock.framework in Resources */,
 				4EB2E1AE1723804D00667537 /* Swarm.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

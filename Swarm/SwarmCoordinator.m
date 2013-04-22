@@ -144,7 +144,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         GCDAsyncSocket* sock = _leafSet[nodeID];
         NSDictionary* options = @{ @"sender": @(self.me.nodeID) };
         NSData* data = [options messagePack];
-        
+
         if([sock isConnected])
         {
             [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposeHeartbeat];
