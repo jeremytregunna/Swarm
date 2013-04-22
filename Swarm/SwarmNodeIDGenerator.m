@@ -1,12 +1,12 @@
 //
-//  SwarmMacAddressHelper.m
+//  SwarmNodeIDGenerator.m
 //  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-21.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
 //
 
-#import "SwarmMacAddressHelper.h"
+#import "SwarmNodeIDGenerator.h"
 #include <sys/socket.h>
 #include <sys/sysctl.h>
 #include <net/if.h>
@@ -27,7 +27,7 @@ void bitsToInt(uint64_t *result, const unsigned char* bits, BOOL little_endian)
     }
 }
 
-@implementation SwarmMacAddressHelper
+@implementation SwarmNodeIDGenerator
 
 + (uint64_t)nodeID
 {

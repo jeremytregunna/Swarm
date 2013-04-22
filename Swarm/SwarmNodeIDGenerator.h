@@ -1,5 +1,5 @@
 //
-//  SwarmMacAddressHelper.h
+//  SwarmNodeIDGenerator.h
 //  Swarm
 //
 //  Created by Jeremy Tregunna on 2013-04-21.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SwarmMacAddressHelper : NSObject
+@interface SwarmNodeIDGenerator : NSObject
 
 + (uint64_t)nodeID;
 + (NSString*)getMacAddress;

@@ -9,14 +9,14 @@
 #import "HATAppDelegate.h"
 #import "Swarm.h"
 #import "HATMessageHistorySource.h"
-#import "SwarmMacAddressHelper.h"
+#import "SwarmNodeIDGenerator.h"
 
 @implementation HATAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     HATMessageHistorySource* historyWriter = [[HATMessageHistorySource alloc] init];
-    SwarmNode* root = [SwarmNode nodeWithID:[SwarmMacAddressHelper nodeID]];
+    SwarmNode* root = [SwarmNode nodeWithID:[SwarmNodeIDGenerator nodeID]];
     SwarmCoordinator* coordinator = [[SwarmCoordinator alloc] initWithNode:root historyDataSource:historyWriter];
     [coordinator listenOnPort:0];
 
