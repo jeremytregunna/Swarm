@@ -13,6 +13,7 @@ I recommend you fetch the project and add it to yours by using git submodules, t
 
     mkdir -p Vendor
     git submodule add https://github.com/jeremytregunna/Swarm.git Vendor/Swarm
+    git submodule update --init --recursive
 
 From this point, open your build settings for your app target, find your `Header Search Paths` and place the following in there:
 
