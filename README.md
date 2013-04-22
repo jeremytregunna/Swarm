@@ -53,7 +53,7 @@ First things first, you'll need a history data source object. Add a new class to
         return [filteredArray lastObject];
     }
    
-   @end
+    @end
 
 Obviously, a real implementation of this protocol won't use an in-memory storage if there will be lots of traffic over the network. Instead consider using Core Data, or some other storage system capable of persisting records out to disk. `SwarmHistoryItem` does conform to `NSCoding` to provide you with multiple options for persisting the messages out to your desired medium.
 
