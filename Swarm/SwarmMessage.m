@@ -41,6 +41,7 @@
         _messageID = [NSUUID UUID];
         _purpose = purpose;
         _sender = sender;
+        _clock = 0ull;
         _forwardedBy = 0;
         _receiver = receiver;
         _date = [NSDate date];
@@ -55,12 +56,13 @@
     result.messageID = self.messageID;
     result.forwardedBy = self.forwardedBy;
     result.date = self.date;
+    result.clock = self.clock;
     return result;
 }
 
 - (BOOL)isEqual:(SwarmMessage*)other
 {
-    return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.sender && [_date isEqualToDate:other.date] && [_payload isEqualToDictionary:other.payload];
+    return [_messageID isEqual:other.messageID] && _purpose == other.purpose && _sender == other.sender && _receiver == other.receiver && _clock == other.clock && [_date isEqualToDate:other.date] && [_payload isEqualToDictionary:other.payload];
 }
 
 - (NSUInteger)hash
@@ -72,6 +74,7 @@
     result = prime * result + _purpose;
     result = prime * result + _sender;
     result = prime * result + _receiver;
+    result = prime * result + _clock;
     result = prime * result + [_date hash];
     result = prime * result + [_payload hash];
 
@@ -87,6 +90,7 @@
         @"purpose",
         @"sender",
         @"receiver",
+        @"clock",
         @"forwardedBy",
         @"date",
         @"payload"

@@ -25,6 +25,7 @@ typedef NS_ENUM(char, SwarmMessagePurpose)
 @property (nonatomic, readonly) SwarmMessagePurpose purpose;
 @property (nonatomic, readonly) uint64_t sender, receiver;
 @property (nonatomic) uint64_t forwardedBy;
+@property (nonatomic) uint64_t clock;
 @property (nonatomic, readonly, strong) NSDate* date;
 @property (nonatomic, readonly, copy) NSDictionary* payload;
 

@@ -13,6 +13,7 @@
 #import "SwarmBonjourServer.h"
 #import "SwarmBonjourClient.h"
 #import "MessagePack.h"
+#import <JVectorClock/JVectorClock.h>
 
 // Time in seconds
 static uint64_t SwarmNodeHeartbeatFrequency       = 300 * NSEC_PER_SEC;
@@ -35,6 +36,8 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
     SwarmBonjourServer* _bonjourServer;
     SwarmBonjourClient* _bonjourClient;
+
+    JVectorClock* _clock;
 }
 
 - (instancetype)initWithNode:(SwarmNode*)node
@@ -47,6 +50,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     if((self = [super init]))
     {
         _me = node;
+        _clock = [[JVectorClock alloc] init];
         self.historyDataSource = historyDataSource;
         _socketQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         _listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
@@ -130,7 +134,10 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
                 JDLog(@"Error connecting to %@. Reason: %@", addr, error);
             }
             else
+            {
                 _leafSet[@(nodeID)] = asyncSocket;
+                [_clock forkClockForNodeID:nodeID];
+            }
         }
     }
 }
@@ -141,12 +148,14 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 {
     for(NSNumber* nodeID in _leafSet)
     {
+        uint64_t nID = self.me.nodeID;
         GCDAsyncSocket* sock = _leafSet[nodeID];
-        NSDictionary* options = @{ @"sender": @(self.me.nodeID) };
+        NSDictionary* options = @{ @"sender": @(nID), @"clock": _clock[@(nID + 1)] };
         NSData* data = [options messagePack];
 
         if([sock isConnected])
         {
+            [_clock forkClockForNodeID:nID];
             [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposeHeartbeat];
             JDLog(@"Sent heartbeat: %@ to Node ID: %@", options, nodeID);
         }
@@ -155,6 +164,9 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 - (BOOL)sendMessage:(SwarmMessage*)msg
 {
+    [_clock forkClockForNodeID:msg.sender];
+    msg.clock = [_clock[@(msg.sender)] unsignedLongLongValue];
+
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
     NSData* data = [fieldOptions messagePack];
 
@@ -174,6 +186,9 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 - (BOOL)sendMessage:(SwarmMessage*)msg toNode:(uint32)nodeID
 {
+    [_clock forkClockForNodeID:msg.sender];
+    msg.clock = [_clock[@(msg.sender)] unsignedLongLongValue];
+
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
     NSData* data = [fieldOptions messagePack];
 
@@ -208,6 +223,8 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     uint16_t port = [newSocket connectedPort];
 
     dispatch_async(dispatch_get_main_queue(), ^{
+        [_clock forkClockForNodeID:self.me.nodeID];
+
         if([self.delegate respondsToSelector:@selector(didAcceptNewConnectionToSwarmCoordinator:)])
             [self.delegate didAcceptNewConnectionToSwarmCoordinator:self];
         JDLog(@"Accepted client %@:%hu", host, port);
@@ -227,7 +244,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     {
         @synchronized(_leafSet)
         {
-            _leafSet[@([options[@"sender"] longLongValue])] = sock;
+            _leafSet[@([options[@"sender"] unsignedLongLongValue])] = sock;
         }
         return;
     }
@@ -235,10 +252,13 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     NSUUID* messageID = options[@"messageID"];
     if(messageID && [self.historyDataSource historyItemForMessageID:messageID] == nil)
     {
+        uint64_t nodeID = self.me.nodeID;
+        [_clock forkClockForNodeID:nodeID];
+
         SwarmHistoryItem* historyItem = [SwarmHistoryItem historyItemWithMessageID:messageID];
         [self.historyDataSource storeHistoryItem:historyItem];
         
-        if([options[@"receiver"] isEqual:@(self.me.nodeID)])
+        if([options[@"receiver"] isEqual:@(nodeID)])
         {
             SwarmMessage* msg = [SwarmMessage messageWithDictionary:options];
             [self.delegate swarmCoordinator:self didReceiveMessage:msg];
@@ -257,6 +277,8 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 - (void)socketDidDisconnect:(GCDAsyncSocket*)sock withError:(NSError*)error
 {
+    [_clock forkClockForNodeID:self.me.nodeID];
+
     if(sock != _listenSocket)
     {
         @synchronized(_connectedSockets)
