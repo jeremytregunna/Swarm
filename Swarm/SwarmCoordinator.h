@@ -25,7 +25,7 @@
 - (void)listenOnPort:(uint16_t)port;
 - (void)stopListening;
 - (void)startScanningForPeers;
-- (void)connectToAddresses:(NSArray*)addrs withNodeID:(uint32_t)nodeID;
+- (void)connectToAddresses:(NSArray*)addrs withNodeID:(uint64_t)nodeID;
 
 - (BOOL)sendMessage:(SwarmMessage*)msg;
 - (BOOL)sendMessage:(SwarmMessage*)msg toNode:(uint32)nodeID;

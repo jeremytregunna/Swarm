@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface SwarmNode : NSObject
-@property (nonatomic, readonly) uint32_t nodeID;
+@property (nonatomic, readonly) uint64_t nodeID;
 
-+ (instancetype)nodeWithID:(uint32_t)nodeID;
++ (instancetype)nodeWithID:(uint64_t)nodeID;
 
 - (BOOL)isEqualToNode:(SwarmNode*)node;
 

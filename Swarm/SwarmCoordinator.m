@@ -117,7 +117,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     [_bonjourClient startScanningForPeers];
 }
 
-- (void)connectToAddresses:(NSArray*)addrs withNodeID:(uint32_t)nodeID
+- (void)connectToAddresses:(NSArray*)addrs withNodeID:(uint64_t)nodeID
 {
     for(NSData* addr in addrs)
     {
@@ -247,7 +247,8 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     {
         @synchronized(_leafSet)
         {
-            [_leafSet setObject:sock forKey:options[@"sender"]];
+            _leafSet[@([options[@"sender"] longLongValue])] = sock;
+            //            [_leafSet setObject:sock forKey:options[@"sender"]];
         }
         return;
     }
@@ -286,6 +287,12 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         @synchronized(_connectedSockets)
         {
             [_connectedSockets removeObject:sock];
+            NSUInteger idx = [[_leafSet allValues] indexOfObject:sock];
+            if(idx != NSNotFound)
+            {
+                NSNumber* key = [[_leafSet allKeys] objectAtIndex:idx];
+                [_leafSet removeObjectForKey:key];
+            }
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{

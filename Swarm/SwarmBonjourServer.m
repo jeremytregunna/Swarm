@@ -27,7 +27,7 @@
 - (void)advertiseForSocket:(GCDAsyncSocket*)socket
 {
     int port = [socket localPort];
-    NSString* name = [NSString stringWithFormat:@"%u", _coordinator.me.nodeID];
+    NSString* name = [NSString stringWithFormat:@"%llu", _coordinator.me.nodeID];
 
     _netService = [[NSNetService alloc] initWithDomain:@"local." type:@"_swarm._tcp." name:name port:port];
     _netService.delegate = self;

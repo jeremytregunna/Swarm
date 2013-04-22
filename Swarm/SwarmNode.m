@@ -10,12 +10,12 @@
 
 @implementation SwarmNode
 
-+ (instancetype)nodeWithID:(uint32_t)nodeID
++ (instancetype)nodeWithID:(uint64_t)nodeID
 {
     return [[self alloc] initWithNodeID:nodeID];
 }
 
-- (instancetype)initWithNodeID:(uint32_t)nodeID
+- (instancetype)initWithNodeID:(uint64_t)nodeID
 {
     if((self = [super init]))
         _nodeID = nodeID;

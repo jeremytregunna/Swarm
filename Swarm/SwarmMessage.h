@@ -23,12 +23,12 @@ typedef NS_ENUM(char, SwarmMessagePurpose)
 @interface SwarmMessage : NSObject <NSCopying, SwarmMessageable>
 @property (nonatomic, readonly, strong) NSUUID* messageID;
 @property (nonatomic, readonly) SwarmMessagePurpose purpose;
-@property (nonatomic, readonly) uint32_t sender, receiver;
-@property (nonatomic) uint32_t forwardedBy;
+@property (nonatomic, readonly) uint64_t sender, receiver;
+@property (nonatomic) uint64_t forwardedBy;
 @property (nonatomic, readonly, strong) NSDate* date;
 @property (nonatomic, readonly, copy) NSDictionary* payload;
 
-+ (instancetype)messageWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
++ (instancetype)messageWithPurpose:(SwarmMessagePurpose)purpose from:(uint64_t)sender to:(uint64_t)receiver withPayload:(NSDictionary*)payload;
 + (instancetype)messageWithDictionary:(NSDictionary*)dictionary;
 - (NSDictionary*)dictionaryFromFields;
 @end

@@ -8,6 +8,7 @@
 
 #import "SwarmBonjourClient.h"
 #import "SwarmCoordinator.h"
+#import "SwarmNode.h"
 
 @implementation SwarmBonjourClient
 {
@@ -38,6 +39,9 @@
 
 - (void)netServiceBrowser:(NSNetServiceBrowser*)aNetServiceBrowser didFindService:(NSNetService*)aNetService moreComing:(BOOL)moreComing
 {
+    if(_coordinator.me.nodeID == [[aNetService name] longLongValue])
+        return;
+
     JDLog(@"Found service name: %@", [aNetService name]);
 
     if(serverService == nil)
@@ -55,7 +59,7 @@
 {
     NSArray* addresses = [sender addresses];
     if([addresses count] > 0)
-        [_coordinator connectToAddresses:addresses withNodeID:[[sender name] intValue]];
+        [_coordinator connectToAddresses:addresses withNodeID:[[sender name] longLongValue]];
 }
 
 @end

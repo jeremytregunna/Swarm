@@ -12,12 +12,12 @@
 @property (nonatomic, readwrite, strong) NSUUID* messageID;
 @property (nonatomic, readwrite, strong) NSDate* date;
 
-- (instancetype)initWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload;
+- (instancetype)initWithPurpose:(SwarmMessagePurpose)purpose from:(uint64_t)sender to:(uint64_t)receiver withPayload:(NSDictionary*)payload;
 @end
 
 @implementation SwarmMessage
 
-+ (instancetype)messageWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
++ (instancetype)messageWithPurpose:(SwarmMessagePurpose)purpose from:(uint64_t)sender to:(uint64_t)receiver withPayload:(NSDictionary*)payload
 {
     return [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
 }
@@ -25,8 +25,8 @@
 + (instancetype)messageWithDictionary:(NSDictionary*)dictionary
 {
     SwarmMessagePurpose purpose = [dictionary[@"purpose"] charValue];
-    uint32_t sender = [dictionary[@"sender"] unsignedIntValue];
-    uint32_t receiver = [dictionary[@"receiver"] unsignedIntValue];
+    uint64_t sender = [dictionary[@"sender"] unsignedIntValue];
+    uint64_t receiver = [dictionary[@"receiver"] unsignedIntValue];
     NSDictionary* payload = dictionary[@"payload"];
     SwarmMessage* msg = [[self alloc] initWithPurpose:purpose from:sender to:receiver withPayload:payload];
     msg->_messageID = dictionary[@"messageID"];
@@ -34,7 +34,7 @@
     return msg;
 }
 
-- (instancetype)initWithPurpose:(SwarmMessagePurpose)purpose from:(uint32_t)sender to:(uint32_t)receiver withPayload:(NSDictionary*)payload
+- (instancetype)initWithPurpose:(SwarmMessagePurpose)purpose from:(uint64_t)sender to:(uint64_t)receiver withPayload:(NSDictionary*)payload
 {
     if((self = [super init]))
     {
