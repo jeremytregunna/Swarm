@@ -35,6 +35,7 @@
 @protocol SwarmDelegate <NSObject>
 @required
 - (void)swarmCoordinator:(SwarmCoordinator*)coordinator didReceiveMessage:(SwarmMessage*)msg;
+- (NSArray*)swarmCoordinator:(SwarmCoordinator*)coordinator node:(NSNumber*)nodeID messagesSinceClock:(uint64_t)clock;
 @optional
 - (void)didAcceptNewConnectionToSwarmCoordinator:(SwarmCoordinator*)coordinator;
 - (void)didDisconnectConnectionFromSwarmCoordinator:(SwarmCoordinator*)coordinator withError:(NSError*)error;

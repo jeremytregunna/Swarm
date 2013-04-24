@@ -249,22 +249,34 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         return;
     }
 
-    NSUUID* messageID = options[@"messageID"];
-    if(messageID && [self.historyDataSource historyItemForMessageID:messageID] == nil)
+    if(tag == SwarmMessagePurposePayload)
     {
-        uint64_t nodeID = self.me.nodeID;
-        [_clock forkClockForNodeID:nodeID];
-
-        SwarmHistoryItem* historyItem = [SwarmHistoryItem historyItemWithMessageID:messageID];
-        [self.historyDataSource storeHistoryItem:historyItem];
-        
-        if([options[@"receiver"] isEqual:@(nodeID)])
+        NSUUID* messageID = options[@"messageID"];
+        if(messageID && [self.historyDataSource historyItemForMessageID:messageID] == nil)
         {
-            SwarmMessage* msg = [SwarmMessage messageWithDictionary:options];
-            [self.delegate swarmCoordinator:self didReceiveMessage:msg];
-        }
+            uint64_t nodeID = self.me.nodeID;
+            [_clock forkClockForNodeID:nodeID];
 
-        [self forwardMessageWithOptions:options];
+            SwarmHistoryItem* historyItem = [SwarmHistoryItem historyItemWithMessageID:messageID];
+            [self.historyDataSource storeHistoryItem:historyItem];
+
+            if([options[@"receiver"] isEqual:@(nodeID)])
+            {
+                SwarmMessage* msg = [SwarmMessage messageWithDictionary:options];
+                [self.delegate swarmCoordinator:self didReceiveMessage:msg];
+            }
+
+            [self forwardMessageWithOptions:options];
+        }
+    }
+    else if(tag == SwarmMessagePurposeReplay)
+    {
+        NSNumber* nodeID = options[@"sender"];
+        NSNumber* clockNumber = options[@"clock"];
+
+        NSArray* messages = [self.delegate swarmCoordinator:self node:nodeID messagesSinceClock:[clockNumber unsignedLongLongValue]];
+        for(SwarmMessage* msg in messages)
+            [self sendMessage:msg];
     }
 }
 
