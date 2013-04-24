@@ -30,7 +30,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 {
     dispatch_queue_t _socketQueue;
     NSMutableArray* _connectedSockets;
-    NSMutableDictionary* _leafSet;
+    NSMutableDictionary* _routingTable;
     dispatch_queue_t _timerQueue;
     dispatch_source_t _timer;
 
@@ -55,7 +55,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         _socketQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         _listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_socketQueue];
         _connectedSockets = [[NSMutableArray alloc] initWithCapacity:1];
-        _leafSet = [NSMutableDictionary dictionary];
+        _routingTable = [NSMutableDictionary dictionary];
         _running = NO;
 
         _timerQueue = dispatch_queue_create("ca.tregunna.swarm.timer", 0);
@@ -135,7 +135,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
             }
             else
             {
-                _leafSet[@(nodeID)] = asyncSocket;
+                _routingTable[@(nodeID)] = asyncSocket;
                 [_clock forkClockForNodeID:nodeID];
             }
         }
@@ -146,10 +146,10 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
 - (void)sendHeartbeats
 {
-    for(NSNumber* nodeID in _leafSet)
+    for(NSNumber* nodeID in _routingTable)
     {
         uint64_t nID = self.me.nodeID;
-        GCDAsyncSocket* sock = _leafSet[nodeID];
+        GCDAsyncSocket* sock = _routingTable[nodeID];
         NSDictionary* options = @{ @"sender": @(nID), @"clock": _clock[@(nID + 1)] };
         NSData* data = [options messagePack];
 
@@ -192,7 +192,7 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
     NSDictionary* fieldOptions = [msg dictionaryFromFields];
     NSData* data = [fieldOptions messagePack];
 
-    GCDAsyncSocket* sock = _leafSet[@(nodeID)];
+    GCDAsyncSocket* sock = _routingTable[@(nodeID)];
     if(sock != nil && [sock isConnected])
     {
         [sock writeData:data withTimeout:20.0f tag:SwarmMessagePurposePayload];
