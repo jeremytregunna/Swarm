@@ -925,6 +925,7 @@
 				4EB2E1A51722E9F800667537 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED655DD170F7867005FEE56 /* Build configuration list for PBXProject "Swarm" */ = {
 			isa = XCConfigurationList;

@@ -50,6 +50,8 @@
     return self;
 }
 
+#pragma mark - Copying
+
 - (id)copyWithZone:(NSZone*)zone
 {
     typeof(self) result = [[[self class] alloc] initWithPurpose:_purpose from:_sender to:_receiver withPayload:_payload];

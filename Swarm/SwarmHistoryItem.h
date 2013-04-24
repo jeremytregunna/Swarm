@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SwarmHistoryItem : NSObject
+@interface SwarmHistoryItem : NSObject <NSSecureCoding>
 @property (nonatomic, readonly, strong) NSUUID* messageID;
 @property (nonatomic, getter = isSent) BOOL sent;
 @property (nonatomic, readonly, strong) NSDate* sentDate;

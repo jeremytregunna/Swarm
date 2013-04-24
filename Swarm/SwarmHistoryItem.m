@@ -14,6 +14,11 @@
 
 @implementation SwarmHistoryItem
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 + (instancetype)historyItemWithMessageID:(NSUUID*)messageID
 {
     return [[self alloc] initWithMessageID:messageID];
@@ -27,6 +32,26 @@
         _sent = NO;
     }
     return self;
+}
+
+#pragma mark - Secure Coding
+
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    if((self = [super init]))
+    {
+        _messageID = [aDecoder decodeObjectOfClass:[NSUUID class] forKey:@"messageID"];
+        _sent = [aDecoder decodeBoolForKey:@"sent"];
+        _sentDate = [aDecoder decodeObjectOfClass:[NSDate class] forKey:@"sentDate"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder*)aCoder
+{
+    [aCoder encodeObject:_messageID forKey:@"messageID"];
+    [aCoder encodeBool:_sent forKey:@"sent"];
+    [aCoder encodeObject:_sentDate forKey:@"sentDate"];
 }
 
 #pragma mark - Accessors
