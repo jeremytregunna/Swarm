@@ -242,9 +242,9 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
 
     if(tag == SwarmMessagePurposeHeartbeat)
     {
-        @synchronized(_leafSet)
+        @synchronized(_routingTable)
         {
-            _leafSet[@([options[@"sender"] unsignedLongLongValue])] = sock;
+            _routingTable[@([options[@"sender"] unsignedLongLongValue])] = sock;
         }
         return;
     }
@@ -296,11 +296,11 @@ static uint64_t SwarmNodeHeartbeatFrequencyLeeway = 10 * NSEC_PER_SEC;
         @synchronized(_connectedSockets)
         {
             [_connectedSockets removeObject:sock];
-            NSUInteger idx = [[_leafSet allValues] indexOfObject:sock];
+            NSUInteger idx = [[_routingTable allValues] indexOfObject:sock];
             if(idx != NSNotFound)
             {
-                NSNumber* key = [[_leafSet allKeys] objectAtIndex:idx];
-                [_leafSet removeObjectForKey:key];
+                NSNumber* key = [[_routingTable allKeys] objectAtIndex:idx];
+                [_routingTable removeObjectForKey:key];
             }
         }
 
