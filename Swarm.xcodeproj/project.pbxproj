@@ -16,13 +16,13 @@
 		4EB2E1AB1722EA1B00667537 /* HATMessageHistorySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1AA1722EA1B00667537 /* HATMessageHistorySource.m */; };
 		4EB2E1AC1722EB0200667537 /* Swarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
 		4EB2E1AE1723804D00667537 /* Swarm.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4ED655E3170F7867005FEE56 /* Swarm.framework */; };
-		4EB2E1B21724316E00667537 /* SwarmBonjourServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B01724316E00667537 /* SwarmBonjourServer.h */; };
+		4EB2E1B21724316E00667537 /* SwarmBonjourServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B01724316E00667537 /* SwarmBonjourServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EB2E1B31724316E00667537 /* SwarmBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B11724316E00667537 /* SwarmBonjourServer.m */; };
-		4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B41724338000667537 /* SwarmCoordinator.h */; };
+		4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B41724338000667537 /* SwarmCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EB2E1B71724338000667537 /* SwarmCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B51724338000667537 /* SwarmCoordinator.m */; };
-		4EB2E1BA17244FC700667537 /* SwarmBonjourClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B817244FC700667537 /* SwarmBonjourClient.h */; };
+		4EB2E1BA17244FC700667537 /* SwarmBonjourClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1B817244FC700667537 /* SwarmBonjourClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EB2E1BB17244FC700667537 /* SwarmBonjourClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1B917244FC700667537 /* SwarmBonjourClient.m */; };
-		4EB2E1BE1724632800667537 /* SwarmNodeIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1BC1724632800667537 /* SwarmNodeIDGenerator.h */; };
+		4EB2E1BE1724632800667537 /* SwarmNodeIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1BC1724632800667537 /* SwarmNodeIDGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EB2E1BF1724632800667537 /* SwarmNodeIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2E1BD1724632800667537 /* SwarmNodeIDGenerator.m */; };
 		4EB2E1E41724CE8A00667537 /* MessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1C11724CE8A00667537 /* MessagePack.h */; };
 		4EB2E1E51724CE8A00667537 /* MessagePackPacker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EB2E1C21724CE8A00667537 /* MessagePackPacker.h */; };
@@ -68,13 +68,13 @@
 		4ED65624170F7925005FEE56 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65620170F7925005FEE56 /* GCDAsyncSocket.m */; };
 		4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65621170F7925005FEE56 /* GCDAsyncUdpSocket.h */; };
 		4ED65626170F7925005FEE56 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65622170F7925005FEE56 /* GCDAsyncUdpSocket.m */; };
-		4ED6562D170F7AE0005FEE56 /* SwarmMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6562B170F7AE0005FEE56 /* SwarmMessage.h */; };
+		4ED6562D170F7AE0005FEE56 /* SwarmMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6562B170F7AE0005FEE56 /* SwarmMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ED6562E170F7AE0005FEE56 /* SwarmMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6562C170F7AE0005FEE56 /* SwarmMessage.m */; };
 		4ED65634170FA13F005FEE56 /* DPSMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65633170FA13F005FEE56 /* DPSMessageTests.m */; };
 		4ED65636170FA563005FEE56 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED65635170FA563005FEE56 /* Security.framework */; };
-		4ED65639170FCE81005FEE56 /* SwarmNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65637170FCE81005FEE56 /* SwarmNode.h */; };
+		4ED65639170FCE81005FEE56 /* SwarmNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65637170FCE81005FEE56 /* SwarmNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ED6563A170FCE81005FEE56 /* SwarmNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65638170FCE81005FEE56 /* SwarmNode.m */; };
-		4ED6563D17107ECB005FEE56 /* SwarmHistoryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563B17107ECB005FEE56 /* SwarmHistoryItem.h */; };
+		4ED6563D17107ECB005FEE56 /* SwarmHistoryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED6563B17107ECB005FEE56 /* SwarmHistoryItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ED6563E17107ECB005FEE56 /* SwarmHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6563C17107ECB005FEE56 /* SwarmHistoryItem.m */; };
 		4ED6574D17130567005FEE56 /* DPSHistoryItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6574C17130567005FEE56 /* DPSHistoryItemTests.m */; };
 		4ED657551713830A005FEE56 /* DPSNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED657541713830A005FEE56 /* DPSNodeTests.m */; };
@@ -457,8 +457,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED65623170F7925005FEE56 /* GCDAsyncSocket.h in Headers */,
-				4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */,
 				4ED6562D170F7AE0005FEE56 /* SwarmMessage.h in Headers */,
 				4ED65639170FCE81005FEE56 /* SwarmNode.h in Headers */,
 				4ED6563D17107ECB005FEE56 /* SwarmHistoryItem.h in Headers */,
@@ -466,6 +464,8 @@
 				4EB2E1B61724338000667537 /* SwarmCoordinator.h in Headers */,
 				4EB2E1BA17244FC700667537 /* SwarmBonjourClient.h in Headers */,
 				4EB2E1BE1724632800667537 /* SwarmNodeIDGenerator.h in Headers */,
+				4ED65623170F7925005FEE56 /* GCDAsyncSocket.h in Headers */,
+				4ED65625170F7925005FEE56 /* GCDAsyncUdpSocket.h in Headers */,
 				4EB2E1E41724CE8A00667537 /* MessagePack.h in Headers */,
 				4EB2E1E51724CE8A00667537 /* MessagePackPacker.h in Headers */,
 				4EB2E1E71724CE8A00667537 /* MessagePackParser+Streaming.h in Headers */,
