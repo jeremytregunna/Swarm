@@ -9,7 +9,7 @@
 #import "SwarmHistoryItem.h"
 
 @interface SwarmHistoryItem ()
-- (instancetype)initWithMessageID:(NSUUID*)messageID;
+- (instancetype)initWithMessageID:(NSUUID*)messageID sentDate:(NSDate*)sentDate;
 @end
 
 @implementation SwarmHistoryItem
@@ -21,15 +21,21 @@
 
 + (instancetype)historyItemWithMessageID:(NSUUID*)messageID
 {
-    return [[self alloc] initWithMessageID:messageID];
+    return [self historyItemWithMessageID:messageID sentDate:nil];
 }
 
-- (instancetype)initWithMessageID:(NSUUID*)messageID
++ (instancetype)historyItemWithMessageID:(NSUUID*)messageID sentDate:(NSDate*)sentDate
+{
+    return [[self alloc] initWithMessageID:messageID sentDate:sentDate];
+}
+
+- (instancetype)initWithMessageID:(NSUUID*)messageID sentDate:(NSDate*)sentDate
 {
     if((self = [super init]))
     {
         _messageID = messageID;
-        _sent = NO;
+        _sent = !(sentDate == nil);
+        _sentDate = sentDate;
     }
     return self;
 }
@@ -60,7 +66,8 @@
 {
     [self willChangeValueForKey:@"sent"];
     _sent = sent;
-    _sentDate = [NSDate date];
+    if(_sentDate == nil)
+        _sentDate = [NSDate date];
     [self didChangeValueForKey:@"sent"];
 }
 

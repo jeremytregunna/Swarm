@@ -14,6 +14,7 @@
 @property (nonatomic, readonly, strong) NSDate* sentDate;
 
 + (instancetype)historyItemWithMessageID:(NSUUID*)messageID;
++ (instancetype)historyItemWithMessageID:(NSUUID*)messageID sentDate:(NSDate*)sentDate;
 @end
 
 @protocol SwarmHistoryDataSource <NSObject>
